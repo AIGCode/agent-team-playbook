@@ -4,6 +4,16 @@
 
 How the agent team works on a project. The mechanics in detail live in `team/` (`workflow.md`, `RUN.md`, roles).
 
+## Three pillars: contract, plan, architecture
+
+Three pillars, without which the team's work falls apart - the faster, the larger the project. These are principles every agent passes through, not templates.
+
+- **Contract** - fixes what result we get and how. If the result is not written down, everything else is meaningless. It keeps the work within bounds: either the whole plan, or a single stage.
+- **Work plan** - the sequence of stages. Both the plan and the contract survive the switch to a new chat: without them the next agent knows neither what to do nor within what bounds.
+- **Architecture** - holds everything together over the long haul: boundaries, connections, work patterns (placed into the project's architecture or into an agent's role).
+
+Architecture templates are not part of the framework - that is the project's domain.
+
 ## Mission chain
 
 ```
