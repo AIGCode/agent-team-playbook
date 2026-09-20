@@ -12,8 +12,11 @@ User -> Tech Lead: task
   -> Developer: code
   -> Checker: regressions   (Developer <-> Checker loop until clean)
   -> Reviewer: scope review (for large changes)
-  -> Tester: PLAN (before deploy) ... RUN (after deploy)
-  -> User: result + DEPLOY.md
+  -> Tester: PLAN - test plan (before deploy)
+  -> Developer: DEPLOY.md - step-by-step deployment instruction
+  -> User: deploys by hand following DEPLOY.md, gets the result
+  -> Tester: RUN - automated tests + tests for the user (B/C)
+  -> User: runs the final tests (B/C)
 ```
 
 ## Roles
