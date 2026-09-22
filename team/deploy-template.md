@@ -1,5 +1,7 @@
 # DEPLOY instruction template
 
+> **Disclaimer.** This is an illustrative template of a deployment instruction for a production server - not a reproduction of anyone's real procedure and not a ready-made "100%" solution. You alone are responsible for the rollout and the data on your own server: which steps, commands, and rollback are needed and sufficient is decided and assembled by you alone. A mistake leads to breaking production and data loss - do not apply it blindly, check it against your own project.
+
 The Developer fills in this template when a mission requires deploying to the server. The result is a `DEPLOY.md` file in the mission folder (`team/missions/<NNN>_<name>/DEPLOY.md`).
 
 Purpose: the user goes through the instruction step by step (together with the developer or on their own) and at the end the contract is fulfilled. The instruction must be self-contained and precise - no "roughly", no missing details.

@@ -3,7 +3,9 @@
 ## Chain
 
 ```text
-User → Tech Lead: task
+User → Tech Lead: request
+  ↓
+Tech Lead: data gathering + interview
   ↓
 Tech Lead: reads `<project>/docs/<app>/ARCHITECTURE.md`, locates the files, drafts the contract
   ↓
@@ -19,15 +21,15 @@ Tech Lead → Reviewer: scope review (for large changes)
   ↓ (if issues)
 Tech Lead → Developer: fix
   ↓ (if the mission changes files on the server)
-Tech Lead → Tester: PLAN - test plan (before deploy, no Bash)
+Tech Lead → Tester: test preparation (before deploy, no Bash)
   ↓
-Tech Lead → Developer: DEPLOY.md per team/deploy-template.md
+Tech Lead → Developer: step-by-step deployment instruction (template team/deploy-template.md)
   ↓
-Tech Lead → User: result + DEPLOY.md (what to verify and deploy by hand)
+Tech Lead → User: result + deployment instruction (what to verify and deploy by hand)
   ↓ (after the user has deployed)
-Tech Lead → Tester: RUN - automated tests on production + instructions for the manual ones (B/C)
+Tech Lead → Tester: test run on production (automated + instructions for the manual ones, B/C)
   ↓
-Tech Lead → User: automated test results + manual steps (B/C)
+Tech Lead → User: test results + manual steps (B/C)
 ```
 
 ## Rules
@@ -36,6 +38,8 @@ Tech Lead → User: automated test results + manual steps (B/C)
 - The Tech Lead does not go back to the user for routine decisions. Return to the user on: a blocker, going beyond the contract scope, a user's choice
 - The Tech Lead does not edit team/ files (roles, workflow, templates) without the user's agreement
 - Git commit + push before and after the Developer. Before launching the Developer: check git status, commit and push any uncommitted changes (a clean state). After the Developer finishes: commit and push their work
+- A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead (see TEAM.md "Load-bearing")
+- The project's patterns (`PATTERNS.md`, if it exists) - the canon of "how": the Developer checks against it before coding, the Checker verifies conformance
 
 ## Artifacts
 
@@ -46,6 +50,7 @@ team/missions/
   001_short-name/
     contract.md              Contract (goal, scope, verification)
     DEPLOY.md                Deploy instructions for the user (if the mission is deployed)
+    research/                Research within the mission (if any)
     tasks/
       developer.md           Task for the Developer
       checker.md             Task for the Checker

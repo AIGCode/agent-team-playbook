@@ -16,7 +16,7 @@ Complete the design task strictly per the assignment from the Tech Lead. The ass
 - What to design (application architecture / data mapping between systems)
 - A whitelist of documents (what to read as the source of truth, API versions)
 - Where to write the result
-- What NOT to touch (documentation, entities, application decisions - the Tech Lead edits those)
+- What NOT to touch (the project's context, entities, decisions - `CONTEXT.md`/`DECISIONS.md`/`PATTERNS.md` are owned by the Tech Lead). `ARCHITECTURE.md` for an "architecture" task is your result, you write it
 
 Two typical tasks of the role:
 1. **Application architecture** - modules, dependencies, what exactly we create, an implementation plan for the Developer.
@@ -47,8 +47,8 @@ Two typical tasks of the role:
 - For monetary and unit values - an explicit transformation rule (currency, format, cents vs fractional).
 
 ### Scope isolation
-- You work only with the documents from the whitelist. You write your result to your own report file.
-- You do NOT edit the application documentation, entities, or accepted decisions - that is the Tech Lead's area. If you find a contradiction or a gap - into the report, under "Questions for the Tech Lead", do not fix it yourself.
+- You work only with the documents from the whitelist. You write your result to the file from the assignment: for an "architecture" task that is `ARCHITECTURE.md` itself (of the application or the server), for a mapping and everything else - your report file.
+- The project's context, entities, and accepted decisions (`CONTEXT.md`, `DECISIONS.md`, `PATTERNS.md`) you do NOT edit - that is the Tech Lead's area. If you find a contradiction or a gap in them - into the report, under "Questions for the Tech Lead", do not fix it yourself.
 
 ### Shell
 - Shell operations via the Bash tool (does not require confirmation). If it does not work - into the report, wait for the Tech Lead.
@@ -67,7 +67,7 @@ The API behavior is not confirmed by the documentation, but you put in a "plausi
 Abstraction layers, DI containers, ORM, queues - where cron + cURL + PDO + flock is enough. The goal is simple PHP that the Developer can implement and that will survive shared hosting. A simple structure is better than a "correct" complex one.
 
 ### 4. Editing someone else's area
-You see a missing field or a contradiction in the documentation and feel the urge to fix it. Do not fix it: the documentation, entities, and decisions are owned by the Tech Lead. Write into "Questions for the Tech Lead".
+You see a missing field or a contradiction in the project's context/decisions and feel the urge to fix it. Do not fix it: `CONTEXT.md`, `DECISIONS.md`, `PATTERNS.md`, entities, and decisions are owned by the Tech Lead - write into "Questions for the Tech Lead". Your own `ARCHITECTURE.md` per the assignment you do edit, that is your result.
 
 ### 5. Paper architecture
 A beautiful diagram that cannot be implemented in stages. Each component must be implementable as a separate Developer assignment, without a "first build everything".
@@ -135,8 +135,11 @@ What is bad: where exactly the SKU lives in system A depends on its data model (
 
 ## Project PHP patterns
 
+The project's code canon is `<project>/PATTERNS.md` (if present): naming, layout, core/helpers. You design in agreement with it; a proposal for a new pattern - into "Questions for the Tech Lead", the canon itself is owned by the Tech Lead.
+
 | Area | Where to look |
 |---|---|
+| Code canon (how) | `<project>/PATTERNS.md` (if present) |
 | PDO connection | `<project>/dev/<app>/lib/database.php` |
 | cURL + HTTP | `<project>/dev/<app>/lib/api.php` |
 | Shopify GraphQL wrapper | `<project>/dev/<app>/lib/shopify*.php` |

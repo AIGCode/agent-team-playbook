@@ -72,6 +72,10 @@ Contains:
 - The technology stack
 - Server paths, hosting
 
+It scales by the number of applications (the extraction rule):
+- **One application** - one architecture: `<project>/docs/<app>/ARCHITECTURE.md`. Every mission starts from it (the roles read the file of the needed application per the task).
+- **A server with several applications** - the server architecture is added in the root `<project>/ARCHITECTURE.md`: how the applications are placed, the list of applications, shared decisions, links to their `docs/<app>/ARCHITECTURE.md`. The detail of each application stays in its `docs/<app>/ARCHITECTURE.md`.
+
 It is extended the same way as AGENTS.md: when an architecture section grows too large - it is moved into a separate `ARCH_[TOPIC].md` file. In ARCHITECTURE.md a brief description + a link remains.
 
 Extension examples:
@@ -83,7 +87,20 @@ Extension examples:
 - `ARCH_BACKEND.md` - the server side
 - `ARCH_FEATURES.md` - features, managers
 
+Who writes it: the Architect per the Tech Lead's task (see the Architect role). Who edits it later: globally - the Architect; pointwise - the Tech Lead and only on the user's instruction.
+
 Create: when the project has an application or a system of several components.
+
+#### PATTERNS.md
+The canon of "how": how recurring things are done in this project - naming (files, functions, variables), file layout, which method/helper for a typical task, error handling. This is not architecture (that is the corset of boundaries and connections): patterns are frequent and technical, applied constantly.
+
+Why: without a canon each agent derives the pattern anew from the neighboring code, which itself drifts apart - "clusters" of inconsistent decisions grow. With `PATTERNS.md` the Developer checks against it before coding, the Checker verifies conformance.
+
+It scales: a simple project - a single `PATTERNS.md`; a complex one - sets by role (`patterns/backend.patterns.md`, `patterns/frontend.patterns.md`). What to set up is decided by the Tech Lead by complexity.
+
+The entry format is a decision, not prose: "for X - always Y, not Z" + a micro-example. Do not silently make up a new situation: no pattern - propose it and add it to `PATTERNS.md` (with the reason).
+
+Create: when more than one agent works on the code or the patterns start to drift apart.
 
 #### INDEX.md
 A map of the project: which folders and files, what each is for, how to find what you need.
@@ -96,9 +113,13 @@ Contains:
 Create: when the project grows (>10 files or >3 nesting levels). Not a starting document but a navigational one.
 
 #### SECURITY.md
-Code security rules: a checklist before deploy, forbidden patterns, examples of safe code.
+Code security rules: web access control, endpoint validation, secrets, logging, file operations, a checklist before deploy. Like the patterns, they are tied to the stack and to the roles that apply them (the Developer writes by them, the Reviewer checks against them).
 
-Create: when the project has code to deploy to a server.
+It scales by the extraction rule: few rules / the context is enough - they live as a section inside a role (the reviewer's checklist is built into `reviewer.md`); many - they are moved into a separate `<project>/SECURITY.md`, and the roles refer to it as the source of truth. What to set up is decided by the Tech Lead when assembling the team, by the project's complexity.
+
+A template and a filled-in example are `team/security-template.md` and `team/security-example.md`.
+
+Create (as a separate file): when there are many security rules and they overflow the role, or the project has code to deploy to a server.
 
 ---
 
@@ -155,6 +176,8 @@ Contains:
 - Blockers and dependencies
 
 As the project grows, the plan can be versioned: `PLAN_V2.md`, `PLAN_V3.md`. The previous version stays as history (do not delete). The current version is named in AGENTS.md. Example: the project went through `PLAN_V3.md` → `PLAN_V4.md`.
+
+Plans scale as a family. A simple project - everything in one `PLAN.md` (stages, development, testing as sections). Heavy development is moved into `dev-plan/DEV_PLAN.md` (+ `items/` by item), voluminous testing - into `TEST_PLAN.md`. The extraction rule: a section lives in the parent while it is small, and moves into its own file when it grows too large. `DEPLOY.md` is not a plan but a step-by-step rollout instruction, separate.
 
 Create: from day one.
 
@@ -231,9 +254,9 @@ Each file is one piece of research: question, method, result, conclusions.
 Create: at the first research.
 
 #### docs/
-Detailed documentation: custom functions, API descriptions, guides, procedures.
+Detailed documentation on applications: `docs/<app>/ARCHITECTURE.md` (the application architecture - the mission's source of truth), plus API descriptions, guides, procedures.
 
-Create: when the documentation goes beyond ARCHITECTURE.md.
+Create: as soon as the project has an application (its architecture lives in `docs/<app>/`); the server-wide part - in the root `ARCHITECTURE.md`.
 
 #### archive/
 Archive: old reports, completed research, outdated plans.
@@ -289,17 +312,19 @@ research/
 ### Large project (a system with code, deploy, security)
 ```
 AGENTS.md
-ARCHITECTURE.md
+ARCHITECTURE.md             (the server architecture; the application detail - in docs/<app>/)
+PATTERNS.md                 (the canon of "how"; a complex project - patterns/<role>.patterns.md)
 INDEX.md
 SECURITY.md
 CONTEXT.md
 DECISIONS.md
 PLAN.md
+dev-plan/                   (if development is voluminous: DEV_PLAN.md + items/)
 WORKFLOW.md
 session-logs/
 CORRESPONDENCE.md
 research/
-docs/
+docs/                       (docs/<app>/ARCHITECTURE.md - the application architecture)
 archive/
 team/                       (if production code - ask; deployed by team-init)
 AGENTS_CLAUDE.md            (if the Claude Code section in AGENTS.md > 30-40 lines)

@@ -10,7 +10,7 @@ Example (PHP project): a set of PHP applications on shared hosting (Apache). Sta
 </context>
 
 <task>
-Implement code strictly per the assignment from the Tech Lead, following the architecture document (ARCHITECTURE.md) and the approved patterns. If a pattern is not described or is unclear - ask in the report, do not invent your own.
+Implement code strictly per the assignment from the Tech Lead, following the architecture document (ARCHITECTURE.md) and the project's pattern canon (`PATTERNS.md`, if present). If a pattern is not described or is unclear - ask in the report, do not invent your own (the Tech Lead will decide and add it to `PATTERNS.md`).
 
 The assignment contains:
 - What to do (the concrete result)
@@ -52,7 +52,7 @@ The assignment contains:
 <workflow>
 
 1. Read the assignment
-2. Read `<project>/docs/<app>/ARCHITECTURE.md` - check against the patterns while implementing
+2. Read `<project>/docs/<app>/ARCHITECTURE.md` and the project's `PATTERNS.md` (if present) - check against the patterns while implementing
 3. Read the files from the whitelist
 4. Implement the changes
 5. Check the syntax: `php -l <file>` for each changed file
@@ -157,10 +157,11 @@ You created your own class because it is "more convenient". The result: two mech
 
 ## Pattern sources
 
-For implementation questions - check against the project's existing code, do not invent.
+First the project's canon (`PATTERNS.md`), then the existing code. Do not invent: no pattern - into the report, the Tech Lead will add to the canon.
 
 | Area | Where to look |
 |---|---|
+| Code canon (how: naming, layout, core/helpers) | `<project>/PATTERNS.md` (if present) |
 | Application architecture | `<project>/docs/<app>/ARCHITECTURE.md` |
 | File structure | The existing `<project>/dev/<app>/` - how folders and configs are organized |
 | SQL/PDO connection | `<project>/dev/<app>/lib/database.php` |

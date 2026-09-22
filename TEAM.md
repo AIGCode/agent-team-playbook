@@ -2,57 +2,68 @@
 
 # Team operating principles
 
-How the agent team works on a project. The mechanics in detail live in `team/` (`workflow.md`, `RUN.md`, roles).
-
-## Three pillars: contract, plan, architecture
-
-Three pillars, without which the team's work falls apart - the faster, the larger the project. These are principles every agent passes through, not templates.
-
-- **Contract** - fixes what result we get and how. If the result is not written down, everything else is meaningless. It keeps the work within bounds: either the whole plan, or a single stage.
-- **Work plan** - the sequence of stages. Both the plan and the contract survive the switch to a new chat: without them the next agent knows neither what to do nor within what bounds.
-- **Architecture** - holds everything together over the long haul: boundaries, connections, work patterns (placed into the project's architecture or into an agent's role).
-
-Architecture templates are not part of the framework - that is the project's domain.
+Operating principles of the agent team: what keeps the project from falling apart, how a mission runs, who writes and who reviews.
 
 ## Mission chain
 
 ```
-User -> Tech Lead: task
+User -> Tech Lead: request
+  -> Tech Lead: data gathering + interview
   -> Tech Lead: contract -> approval by the user
   -> Developer: code
   -> Checker: regressions   (Developer <-> Checker loop until clean)
   -> Reviewer: scope review (for large changes)
-  -> Tester: PLAN - test plan (before deploy)
-  -> Developer: DEPLOY.md - step-by-step deployment instruction
-  -> User: deploys by hand following DEPLOY.md, gets the result
-  -> Tester: RUN - automated tests + tests for the user (B/C)
+  -> Tester: test preparation (before deploy)
+  -> Developer: step-by-step deployment instruction
+  -> User: deploys by hand following the instruction, gets the result
+  -> Tester: test run after deploy (automated + for the user, B/C)
   -> User: runs the final tests (B/C)
 ```
 
 ## Roles
 
-- **Writers:** Tech Lead (coordinator, the only one who talks to the user), Developer (code), Architect (project docs).
-- **Read-only:** Checker (regressions), Reviewer (review and security), Tester (tests), Researcher (information gathering).
+A role is an agent with its own specialization and instruction; the more complex the project, the more roles - a simple one gets by with a couple, a complex one needs them all. Some roles change files (writers), some only review (readers) - only one can change at a time, readers are safe and run in parallel.
+
+- **Tech Lead** (writer) - coordinator; the only one who talks to the user, draws up the contract, hands out tasks, evaluates reports.
+- **Developer** (writer) - implements code per the task, strictly in the files handed to them.
+- **Architect** (writer) - designs the architecture and maintains its document; does not touch production code.
+- **Checker** (reader) - after the Developer, looks for regressions and drift from patterns.
+- **Reviewer** (reader) - final review: security and structure.
+- **Tester** (reader) - plans and runs tests after deploy.
+- **Researcher** (reader) - gathers information from the web and files.
 
 Who to launch when - `team/ROLES.md`. How to launch - `team/RUN.md`.
 
-## Gates (what can be skipped)
+## Load-bearing
 
-- Contract - the task is trivial (1-2 files, no risks).
-- Checker - the changes are isolated (a new file with no consumers).
-- Reviewer - a minor edit already covered by the Checker.
-- Tester - there is no deploy.
-- DEPLOY.md - the changes do not go to the server.
+Load-bearing elements are what keep the project from falling apart. The larger it is, the more easily it falls apart: context is lost, decisions drift, work diverges. The more load-bearing elements are needed to hold it together. The set is chosen per project - a small task gets by with a couple, a large one needs them all; how many to take is decided by the Tech Lead at the start, during data gathering.
+
+- **Contract** - fixes what we get as the result and how we accept it.
+- **Architecture** - boundaries, layers, connections.
+- **Team** - role descriptions for agents: from one role to many.
+- **Plans** - of work, development, testing.
+- **Patterns** - the canon of "how": naming, layout, which method.
+- **Security** - rules of secure code.
+
+## Gates
+
+A gate is a checkpoint that work does not pass until it is confirmed. It keeps the unverified from moving further, so that an error does not run down the chain. It can be skipped only when the gate has nothing to check.
+
+- **Contract** - work does not begin without an approved result. Skip: the task is trivial (1-2 files, no risks).
+- **Checker** - code does not move further until it is checked for regressions. Skip: the changes are isolated (a new file with no consumers).
+- **Reviewer** - a large change is not closed without a review. Skip: a minor edit already covered by the Checker.
+- **Tester** - the result is not accepted without tests. Skip: there is no deploy.
+- **Deploy** - it is not done until the code is rolled out and works; if it did not work - roll back. Skip: the changes do not go to the server.
 
 ## Core rules
 
-- **One writer at a time.** Read-only roles work in parallel as long as their scope does not overlap.
+- **One writer at a time.** Read-only roles work in parallel if their scope does not overlap.
 - **Scope isolation.** Each agent gets only the files of its domain, via an explicit whitelist. A broad scope burns context and yields a blurry result.
 - **The contract is a gate.** There is always a contract between the task and the work; the Developer is not launched until the user has approved it.
-- **Returning to the user** - only for a blocker, going beyond the contract's scope, or a user choice. The Tech Lead does not surface for routine matters.
+- **Returning to the user** - only a blocker, going beyond the contract's scope, or a user choice. The Tech Lead does not surface for routine matters.
 - **Git before and after the Developer.** Before - a clean state (commit/push anything uncommitted); after - commit their work.
-- **An agent does not edit `team/` files** without agreeing it with the user. Symmetrically: the Architect/Developer do not edit documentation, entities, and decisions - that is the Tech Lead's domain.
-- **A stopped agent.** After a stop/kill, first find out what it managed to do and which files it touched, and report to the user - they decide. Do not launch a new agent right away: it will overwrite the work.
+- **An agent does not edit `team/` files** without agreeing it with the user. Symmetrically: the Developer does not edit documentation, entities, and decisions - that is the Tech Lead's domain. Exception: the Architect writes the architecture document (`ARCHITECTURE.md`) per the task - that is their result; the rest of the documentation and decisions they do not edit either.
+- **A stopped agent.** After a stop/kill, first find out what it managed to do and which files it touched, report to the user - they decide. Do not launch a new agent right away: it will overwrite the work.
 
 ## Reports
 

@@ -12,7 +12,7 @@ Example (PHP project): a set of PHP applications on shared hosting (Apache). Sta
 
 **Important:** there is no local server. PHP is not installed on the developer's machine. The code is deployed to shared hosting. Testing is done through HTTP requests to the production URL. Commands like `php -l` do not work.
 
-**When to run:** after passing the Checker and/or the Reviewer. The code is deployed to the server. The tester verifies the behavior on production.
+**When to run:** after the Checker and/or the Reviewer. PLAN - before deploy: you plan the tests (read-only, without Bash). RUN - after deploy: the code is on the server, you verify the behavior on production.
 </context>
 
 <task>

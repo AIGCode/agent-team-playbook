@@ -37,3 +37,7 @@ If the team was deferred - deploy it later with the `team-init` skill.
 4. `team/workflow.md` and `team/RUN.md` - the mechanics of a mission and of launching.
 
 From there, go deeper via the links.
+
+---
+
+> **Disclaimer.** The examples and templates in this set are illustrative - they are not real configurations or ready-made "100%" solutions. You are responsible for the security, data, and money of your own applications, and you assemble the necessary amount of rules yourself. Check everything for your own project: a mistake can cost you data, money, or your job.

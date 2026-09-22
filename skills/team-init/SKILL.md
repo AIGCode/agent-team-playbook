@@ -17,6 +17,8 @@ Installs the ready-made team skeleton from `team-playbook/team/` into a project 
 ### 1. Copy the skeleton
 Copy the contents of `team-playbook/team/` into the project root as `<project>/team/`: `ROLES.md`, `workflow.md`, `RUN.md`, the templates (`contract-template.md`, `task-templates.md`, `deploy-template.md`), `report-evaluation.md`, the `roles/` folder. Do not copy the `missions/` folder - it appears with the first mission.
 
+Plus copy `team-playbook/TEAM.md` into the project root (`<project>/TEAM.md`): these are the team's operating principles - the Tech Lead reads them before the first mission, and `workflow.md` refers to them.
+
 ### 2. Adapt to the project
 Fill in the placeholders in the copied files:
 - `<project>` - the project name/path.
@@ -34,6 +36,8 @@ Check `~/.claude/settings.json` (details in `team/RUN.md`):
 
 ### 4. Launch the Tech Lead
 A new chat = the Tech Lead. Hand it the `team/roles/techlead.md` role. Ask it to go through the startup procedure and confirm HOW it intends to work, itself and with the team. Until it has confirmed - do not launch missions.
+
+At the start the Tech Lead assembles the load-bearing elements for the project - the team, the plans (of work / development / testing), the patterns (`PATTERNS.md`), security - by the principle from `team-playbook/TEAM.md` ("Load-bearing"): a simple project needs the minimum in one place, a complex one needs more, with extraction into separate files and splitting (plans by kind, patterns by role). The contract is always needed, the architecture - when there is something to hold together.
 
 ### 5. Work
 After accepting the role, the Tech Lead runs missions per `team/workflow.md`: contract -> Developer -> Checker -> Reviewer -> Tester (PLAN/RUN) -> deploy. From there the user either works with the project themselves, or the Tech Lead launches teammates per `team/RUN.md`.
