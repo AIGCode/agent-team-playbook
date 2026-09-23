@@ -4,7 +4,7 @@
 
 > Usually you take a task to a chat: you describe the problem and get an answer. A single chat handles a large task poorly. It loses the thread, forgets what was agreed, and does not check itself. Along with the chat, the material you worked with is lost too: findings, decisions, drafts. That is why a project is set up first, where everything the work involves is stored. Any new chat will read it and continue from the same place. Once there is a project, a team can be connected to it: one chat runs the work and talks to you, the others do the work and check it. Below is how to start: how to turn your task into a project, connect the team, and give a new chat its role so that it understands what is needed from it.
 
-> The role prompts and task complexity are designed for models in the Opus 4.8 class and above. On weaker models quality is not guaranteed.
+> The role prompts and task complexity are designed for models in the Opus 4.8 class and above. On weaker models quality is not guaranteed. The framework is written for Claude Code. If you work with another tool or model, ask it to find the Claude Code dependencies in the framework and adapt them to itself.
 
 ## Three words
 
