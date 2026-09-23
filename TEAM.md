@@ -49,29 +49,22 @@ Load-bearing elements are what keep the project from falling apart. The larger i
 
 ## Gates
 
-A gate is a checkpoint that work does not pass until it is confirmed. It keeps the unverified from moving further, so that an error does not run down the chain. It can be skipped only when the gate has nothing to check.
+A gate is a point past which work does not go until it has been checked. This keeps an error from travelling further down the chain.
 
-- **Contract** - work does not begin without an approved result. Skip: the task is trivial (1-2 files, no risks).
-- **Checker** - code does not move further until it is checked for regressions and consistency. Skip: the changes are isolated - a new file with no consumers that does not introduce its own variant of what the project already has (a second helper, a different name for the same concept). Why the caveat: such a file has nothing to break, but it can introduce an inconsistency with the existing code.
-- **Reviewer** - a large change is not closed without a review. Skip: a minor edit already covered by the Checker. Large means a change where an error can turn into a leak, a breach, or a production breakdown. Signs, for example (not only these): a new entry point (endpoint, webhook, script), authorization and secrets, files or data from an external user, money and payments, a change to many files at once. If there is at least one sign - the Reviewer is needed.
-- **Tester** - the result is not accepted without tests. Skip: there is no deploy.
-- **Deploy** - it is not done until the code is rolled out and works; if it did not work - roll back. Skip: the changes do not go to the server.
+- **Contract** - work does not start until you have approved what you will get and how it will be checked.
+- **Checker** - code does not go further until it has been checked for breakage, mismatches and consistency.
+- **Reviewer** - a large change is not closed without a security review.
+- **Tester** - the result is not accepted without tests.
+- **Deploy** - is not considered done until the code is rolled out and works.
+
+When a gate can be skipped is decided by the Tech Lead using the conditions in `team/workflow.md` ("When to skip a step").
 
 ## Core rules
 
-- **One writer at a time.** Read-only roles work in parallel if their scope does not overlap. The exception is the Tester on production: while they run tests on the live site, other agents are not launched, so that their work does not get mixed up with the Tester's checks.
-- **An architecture is needed but does not exist - the first mission is architectural.** Architecture is a load-bearing element that the Tech Lead picks for the project (see "Load-bearing"). The contract relies on `ARCHITECTURE.md` if the project needs an architecture (there is an application or a system of several components); if it does not exist or is outdated, the Tech Lead first runs a separate architectural mission with its own contract: the result - `ARCHITECTURE.md`, the verification - the user reads and accepts the document. Then the task for the Architect, the user's acceptance of the document, the mission's closure. Only after that - the contract for the original task, which relies on the finished architecture. The "always a contract" rule is not broken by this: the architectural mission has a contract too; it is drawn up without `ARCHITECTURE.md` (it does not exist yet) - from the task, the existing code, and the documentation. If the project does not need an architecture, the contract relies on the affected files and the existing code.
-- **Scope isolation.** Each agent gets only the files of its domain, via an explicit whitelist. A broad scope burns context and yields a blurry result.
-- **The contract is a gate.** There is always a contract between the task and the work, except for trivial tasks (the skip condition is in "Gates"); the Developer is not launched until the user has approved it.
-- **Returning to the user** - only a blocker, going beyond the contract's scope, or a user choice. The Tech Lead does not surface for routine matters.
-- **Git before and after the Developer.** Before - a clean state (commit/push anything uncommitted); after - commit their work.
-- **An agent does not edit `team/` files** without agreeing it with the user. Symmetrically: the Developer does not edit documentation, entities, and decisions - that is the Tech Lead's domain. Exception: the Architect writes the architecture document (`ARCHITECTURE.md` and its extensions `ARCH_*.md`) per the task - that is their result - and maintains the architectural decisions in `DECISIONS.md` (the shared one or `docs/<app>/DECISIONS.md` - which one is specified in the task); the rest of the documentation (`CONTEXT.md`, `PATTERNS.md`, and others) they do not edit either.
-- **A stopped agent.** After a stop/kill, first find out what it managed to do and which files it touched, report to the user - they decide. Do not launch a new agent right away: it will overwrite the work.
-- **Mission closure.** A mission is closed when the Tech Lead has marked the contract closed (`status: closed`, `closed_at`), updated the project's plan and decisions, and committed the work. Without this step, the next session does not know that the mission is already finished.
-
-## Reports
-
-Each role has its own prescribed format (without a template an agent answers chaotically), and each report has an outcome that the Tech Lead reads first: the Checker and the Architect - a PASS / FAIL / NEEDS_REVIEW verdict; the Reviewer - a verdict (PASS = no HIGH, including risks outside the list) and violations by severity; the Tester - a verdict in PLAN and in RUN (PASS only if the tests cover the contract's acceptance criteria); the Developer - a DONE / PARTIAL / BLOCKED status and a table "acceptance criterion - met - how verified", not a self-assessed PASS; the Researcher - a short outcome at the top (what is covered, what was not found), the full material - in files. The Tech Lead reads the outcome + Summary + Action Items, and the details point by point at file:line. How to respond per role - `team/report-evaluation.md`.
+- **One changes, many check.** One role at a time edits files, the checking roles work in parallel: two editing roles would overwrite each other's work.
+- **You talk to the Tech Lead.** They come to you only with a blocker, a step outside the contract or a decision that is yours.
+- **The team does not change its own instructions** (`team/`) without your consent.
+- **A mission is closed when the contract is closed and the plan is updated.** Otherwise the next chat will not know the work is already done.
 
 ## Tech Lead's context
 
