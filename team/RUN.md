@@ -38,7 +38,7 @@ From the launch result you MUST save the full `agentId` of the form `name@sessio
 
 `subagent_type` for a long-lived role is `general-purpose`: the role is set by the text of `team/roles/<role>.md` in the prompt. The `Explore` and `Plan` types are one-shot and cannot be resumed.
 
-One writer agent (Developer) at a time. Read-only agents run in parallel if their scopes do not overlap. Exception - the Tester in RUN mode: it makes requests to the live site, so while it is working, do not launch other agents.
+One writer agent (Developer, Architect) at a time. Read-only agents (Checker, Reviewer, Tester, Researcher) run in parallel if their scopes do not overlap. Exception - the Tester in RUN mode: it makes requests to the live site, so while it is working, do not launch other agents.
 
 ## 2.1. Continuing work with an agent (without losing context)
 

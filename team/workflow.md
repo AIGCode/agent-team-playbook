@@ -19,7 +19,7 @@ Tech Lead → Checker: regression and consistency check
   ↓ (if regressions or inconsistencies)
 Tech Lead → Developer: fix → Checker: re-check
   ↓ (loop until there are no regressions and inconsistencies)
-Tech Lead → Reviewer: scope review (for large changes, the signs - TEAM.md "Gates")
+Tech Lead → Reviewer: scope review (for large changes)
   ↓ (if issues)
 Tech Lead → Developer: fix
   ↓ (if the mission changes files on the server)
@@ -40,11 +40,11 @@ Closure is a separate step, because without it the next session cannot tell a fi
 
 ## Rules
 
-- One writer (Developer) at a time. Read-only roles (Checker, Reviewer, Tester) run in parallel if their scopes do not overlap. Exception - the Tester on production (RUN): its requests reach the live site, so during that time it works alone
+- One writer (Developer, Architect) at a time. Read-only roles (Checker, Reviewer, Tester, Researcher) run in parallel if their scopes do not overlap. Exception - the Tester on production (RUN): its requests reach the live site, so during that time it works alone
 - The Tech Lead does not go back to the user for routine decisions. Return to the user on: a blocker, going beyond the contract scope, a user's choice
-- The Tech Lead does not edit team/ files (roles, workflow, templates) without the user's agreement
+- Agents do not edit team/ files (roles, workflow, templates). The Tech Lead edits them only when the user explicitly asks for it because the document does not fit the project's tasks
 - Git commit + push before and after the Developer. Before launching the Developer: check git status, commit and push any uncommitted changes (a clean state). After the Developer finishes: commit and push their work
-- A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead (see TEAM.md "Load-bearing")
+- A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead
 - The project's patterns (`PATTERNS.md`, if it exists) - the canon of "how": the Developer checks against it before coding, the Checker verifies conformance
 
 ## Artifacts

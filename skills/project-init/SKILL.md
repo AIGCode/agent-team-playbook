@@ -20,7 +20,7 @@ user-invocable: true
 ## Principles
 
 1. A project must be understandable to a new session on the first read
-2. The project's files are project knowledge; instructions for agents (roles, chain, templates) live in the team (`team/`, `TEAM.md`)
+2. The project's files are project knowledge; instructions for agents (roles, chain, templates) live in the team (`team/`)
 3. The structure scales: a small project starts with 3 files, a large one can have 15+
 4. Each file has a single responsibility
 5. The model should not read everything - it reads the entry point and follows the links
@@ -85,7 +85,7 @@ The canon of "how": how recurring things are done in this project - naming (file
 
 Why: without a canon each agent derives the pattern anew from the neighboring code, which itself drifts apart - "clusters" of inconsistent decisions grow. With `PATTERNS.md` the Developer checks against it before coding, the Checker verifies conformance.
 
-It scales: a simple project - a single `PATTERNS.md`; a complex one - sets by role or by layer (`patterns/<name>.patterns.md`, for example `patterns/backend.patterns.md`, `patterns/frontend.patterns.md`). What to set up is decided by the Tech Lead by complexity (in a project with a team - by the principle from `TEAM.md`, "Load-bearing").
+It scales: a simple project - a single `PATTERNS.md`; a complex one - sets by role or by layer (`patterns/<name>.patterns.md`, for example `patterns/backend.patterns.md`, `patterns/frontend.patterns.md`). What to set up is decided by the Tech Lead by complexity.
 
 The entry format is a decision, not prose: "for X - always Y, not Z" + a micro-example. Do not silently make up a new situation: no pattern - the agent proposes it in the report (with the reason), the Tech Lead decides and adds it to `PATTERNS.md` - they are the only writer of patterns, so that the canon does not drift apart (in a project without a team - whoever runs the project).
 
@@ -272,7 +272,6 @@ The AI agent team folder. Each team member is an agent with its own specializati
 
 Structure:
 ```
-TEAM.md            - the team's operating principles (in the project root; copied by team-init)
 team/
   ROLES.md         - a description of all roles (who to launch and when)
   workflow.md      - the mission chain, artifacts
@@ -287,7 +286,7 @@ team/
 
 Create: when the project needs systematic help from agents (quality control, architecture, testing). At the project creation stage, ask the user: "Do we create the team now or later?" If later - remind them that the team is deployed with the `team-init` skill.
 
-The ready-made portable team framework is the `team-playbook` folder (`~/.claude/team-playbook/` by default): `team/` (workflow, templates and roles; the roles are a working sample for PHP, for a different stack they are rewritten) and `TEAM.md`. The `team-init` skill helps deploy it into a project and adapt it (if the framework is not in the default location, it will ask for the path); the `new-role` skill creates a new role or rewrites an existing one for the stack.
+The ready-made portable team framework is the `team-playbook` folder (`~/.claude/team-playbook/` by default): `team/` (workflow, templates and roles; the roles are a working sample for PHP, for a different stack they are rewritten). The `team-init` skill helps deploy it into a project and adapt it (if the framework is not in the default location, it will ask for the path); the `new-role` skill creates a new role or rewrites an existing one for the stack.
 
 ---
 
@@ -328,7 +327,7 @@ CORRESPONDENCE.md
 research/
 docs/                       (docs/<app>/ARCHITECTURE.md - the application architecture; with a team - from the Architect)
 archive/
-TEAM.md, team/              (if production code - ask; deployed by team-init)
+team/                       (if production code - ask; deployed by team-init)
 ```
 
 ---
@@ -337,7 +336,7 @@ TEAM.md, team/              (if production code - ask; deployed by team-init)
 
 1. Determine the size: small / medium / large
 2. Create the project folder in the projects directory (for example, with a split into `company/` and `personal/`, if the user has one)
-3. Create the files per the size template. `ARCHITECTURE.md` (the root one and `docs/<app>/`) as a draft - only if there is no team when the project is created. With a team it is written by the Architect in the architectural mission (`TEAM.md`, Core rules): a draft would prevent this mission from starting (the file already exists) and would remain accepted by nobody. So ask the team question (step 7) before this step. If the team is deployed later, a draft created before it counts as unaccepted: the Tech Lead will start with the architectural mission (see `team-init`)
+3. Create the files per the size template. `ARCHITECTURE.md` (the root one and `docs/<app>/`) as a draft - only if there is no team when the project is created. With a team it is written by the Architect in the architectural mission: a draft would prevent this mission from starting (the file already exists) and would remain accepted by nobody. So ask the team question (step 7) before this step. If the team is deployed later, a draft created before it counts as unaccepted: the Tech Lead will start with the architectural mission (see `team-init`)
 4. Fill in AGENTS.md (the entry point)
 5. Fill in CONTEXT.md (what is known at the start)
 6. Fill in PLAN.md (the first steps)
