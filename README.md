@@ -6,11 +6,13 @@
 >
 > The bigger the project, the faster it falls apart: context gets lost, decisions drift, material scatters across chats. The framework holds the project together: all the context lives in the project's files, and the work grows with it - from a single chat to a team of roles.
 
-> The role prompts and task complexity are designed for models in the Opus 4.8 class and above. On weaker models quality is not guaranteed. The framework is written for Claude Code. If you work with another tool or model, ask it to find the Claude Code dependencies in the framework and adapt them to itself.
+This is what team-playbook is for. It grew out of my own practice of working with AI on many applications. Install it and start your first project - everything is below, step by step.
 
 ## Installation
 
 Put the `team-playbook/` folder in `~/.claude/team-playbook/`. This is the framework - a source folder, not a project: the skills take the team and the templates from it for every new project. You can also put it elsewhere - then `team-init` (it takes the team and the templates from the framework) will ask for the path to it. Copy the skills from `skills/` into `~/.claude/skills/`, one folder per skill.
+
+> The role prompts and task complexity are designed for models in the Opus 4.8 class and above. On weaker models quality is not guaranteed. The framework is written for Claude Code. If you work with another tool or model, ask it to find the Claude Code dependencies in the framework and adapt them to itself.
 
 ## Getting started
 
