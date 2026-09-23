@@ -26,7 +26,7 @@ The Tech Lead reads the role file (`team/roles/<role>.md`), formulates the task 
 Agent:
   name: "developer-N" | "architect-N" | "checker-N" | "reviewer-N" | "tester-N" | "researcher-N"
   subagent_type: "general-purpose"
-  model: "<model>" (see section 3; specify it only when falling back to a backup)
+  model: "<model>" (see section 3; omit it only when falling back to a backup)
   prompt: [instruction from team/roles/*.md + task]
 ```
 
@@ -36,9 +36,9 @@ Deprecated parameters (the system ignores them, verified 2026-07-27):
 
 From the launch result you MUST save the full `agentId` of the form `name@session-XXXX`. You need it if another agent takes over the name - then it can only be reached by ID.
 
-`subagent_type` for a long-lived role is `general-purpose` or your own role from `.claude/agents/*.md`. The `Explore` and `Plan` types are one-shot and cannot be resumed.
+`subagent_type` for a long-lived role is `general-purpose`: the role is set by the text of `team/roles/<role>.md` in the prompt. The `Explore` and `Plan` types are one-shot and cannot be resumed.
 
-One writer agent (Developer) at a time. Read-only agents run in parallel if their scopes do not overlap.
+One writer agent (Developer) at a time. Read-only agents run in parallel if their scopes do not overlap. Exception - the Tester in RUN mode: it makes requests to the live site, so while it is working, do not launch other agents.
 
 ## 2.1. Continuing work with an agent (without losing context)
 
@@ -70,6 +70,7 @@ All roles run on a single model - `<model>` (an Agent tool alias, e.g. `opus`). 
 |------|--------------|
 | Tech Lead | Main session (`/model`) |
 | Developer | `model: "<model>"` |
+| Architect | `model: "<model>"` |
 | Checker | `model: "<model>"` |
 | Reviewer | `model: "<model>"` |
 | Tester | `model: "<model>"` |
@@ -85,14 +86,7 @@ To confirm which model an agent is actually running on, ask it, as its first act
 
 ## 4. Create a mission
 
-```
-team/missions/NNN_short-name/
-  contract.md    <- from team/contract-template.md
-  tasks/         <- tasks for the agents
-  reports/       <- agents' reports
-```
-
-The NNN number is the next in sequence. Check the last one: `ls team/missions/`.
+Folder `team/missions/<NNN>_<name>/`, `contract.md` - from `team/contract-template.md`. The folder structure and numbering - a single tree in `team/workflow.md`, "Artifacts".
 
 ## 5. Prompt for a teammate
 
@@ -103,18 +97,18 @@ The prompt structure when calling the Agent tool:
 
 --- TASK ---
 
-[Full text of team/missions/NNN/tasks/<role>.md]
+[Full text of team/missions/<NNN>_<name>/tasks/<role>.md]
 
 --- END ---
 
-Begin work. Write the report to team/missions/NNN/reports/<role>.md
+Begin work. Write the report to team/missions/<NNN>_<name>/reports/<role>.md. When done, send the Tech Lead via SendMessage (to: "team-lead") the report's outcome + Summary + the path to the report - plain text does not reach the Tech Lead.
 ```
 
 ## 6. Get the result
 
-The teammate finishes the work and returns a summary. The full report is in the file `team/missions/NNN/reports/<role>.md`.
+The teammate finishes the work and sends the outcome as a message via `SendMessage` (the line about this is in the prompt template, section 5; without it the Tech Lead only sees an idle notice, see section 2.1). The full report is in the file `team/missions/<NNN>_<name>/reports/<role>.md`.
 
-The Tech Lead reads only Verdict + Summary + Action Items. The details - selectively, by the address from the issues.
+The Tech Lead reads only the report's outcome (Verdict, for the Developer - Status and the acceptance criteria table, for the Researcher - the outcome at the top) + Summary + Action Items. The details - selectively, by the address from the issues.
 
 ## 7. Close the team
 

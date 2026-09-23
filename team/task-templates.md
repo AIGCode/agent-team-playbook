@@ -30,11 +30,12 @@ Brief description:
 
 ## Result format
 Report to `team/missions/<NNN>_<name>/reports/<role>.md` per the output format below.
+When done, send the Tech Lead via SendMessage (to: "team-lead") the report's outcome + Summary + the path to the report - plain text does not reach the Tech Lead.
 ```
 
 ## Output format
 
-Every role must have its own prescribed response format - without a template the agent answers chaotically. Below is the base format for roles with a yes/no result (Developer, Checker, Architect). The reviewing roles and the researcher have their own formats, see their roles: Reviewer - severity (HIGH/MEDIUM/LOW), Tester - PLAN/RUN, Researcher - structured information without a verdict.
+Every role must have its own prescribed response format - without a template the agent answers chaotically. Below is the base format for roles with a yes/no result (Checker, Architect). The other roles have their own format, see their roles, but all of them have an outcome at the top - the Tech Lead reads it first: Developer - `Status: DONE / PARTIAL / BLOCKED` and a table "acceptance criterion - met - how verified"; Reviewer - `## Verdict` (PASS = no HIGH, including risks outside the list) + violations by severity (HIGH/MEDIUM/LOW) + `## Summary`; Tester - `## Verdict` in PLAN and in RUN (PASS only if the tests cover the contract's acceptance criteria); Researcher - an outcome at the top (what is covered, what was not found, sources), without a verdict.
 
 ```text
 ## Verdict

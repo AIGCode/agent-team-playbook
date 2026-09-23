@@ -24,7 +24,7 @@ PART 1 - FOR THE USER. The basis is understanding, not mechanics.
 PART 2 - FOR THE EXECUTOR (AI). Precision over readability.
 - Endpoints, methods, exact field names, versions - verbatim.
 - Sources explicitly: the reading order + which file is the source of truth for which fields. No "it will figure it out".
-- The provenance of the item list (registry/report) - so completeness can be cross-checked.
+- The provenance of the item list (the report or document the list is taken from) - so completeness can be cross-checked.
 - The provisional is marked: an item rests on a draft decision - say so, do not present it as a fact.
 - Scope isolation in technical terms (what is read-only, do not copy tokens).
 - An entry point for continuation across days / by another lead.
@@ -79,14 +79,14 @@ BRIDGE: one label in both parts. The dependency is one-way - part 1 is clear wit
 1. <file - why read it>
 2. <file - the source of truth for which fields>
 
-<The provenance of the item list: where it is taken from (registry/report + rows), where completeness is cross-checked.>
+<The provenance of the item list: the report or document the list is taken from (+ rows), where completeness is cross-checked.>
 
 ## Specification by item
 
-### T1 - <name> (<registry #N, if any>)
+### T1 - <name>
 - Request/steps: <endpoint, method, fields>
 - Expected: <what we count as success>
-- Field source: <file .fields.md>. Closes: <#N>.
+- Field source: <the application's documentation (`docs/<app>/`) or a report>.
 
 ## What we do not touch (technically)
 
@@ -104,20 +104,23 @@ The log in `reports/` is the document by which the next step is taken. It must b
 
 ## Acceptance (for the Tech Lead)
 
-- **The work is not accepted until all the "How we will know it is done" items (part 1) are met.** If any item is unmet or marked "not verified" without justification - the work is returned to the developer for revision, and the contract is not closed.
-- **If the result requires user actions** (deploy, manual steps on the server, manual configuration outside the code) - the developer prepares a separate instruction document in `DEPLOY.md` format (sample: `team/missions/<NNN>_<name>/DEPLOY.md`): self-contained, in plain language - what to upload/run, the expected output, rollback. Without it, work with manual steps is not accepted.
+- **The work is not accepted until all the "How we will know it is done" items (part 1) are met.** If any item is unmet or marked "not verified" without justification - the work is returned to the developer for revision, and the contract is not closed. An item "not verified, because..." with a justification is not accepted automatically: the Tech Lead takes it to the user, and the user decides - accept it as is, verify it differently, or return it for revision. Otherwise "not verified - no access" becomes a way to close the contract without verifying anything.
+- **If the result requires user actions** (deploy, manual steps on the server, manual configuration outside the code) - the developer prepares a separate instruction document in `DEPLOY.md` format (sample: `team/deploy-template.md`; result - `team/missions/<NNN>_<name>/DEPLOY.md`): self-contained, in plain language - what to upload/run, the expected output, rollback. Without it, work with manual steps is not accepted.
 
 ## State and entry point
 
-- **Status:** <date, draft/approved, what is already done>
+- **Status:** <date, draft/approved/closed, what is already done>
 - **On return, start with:** <first step>
 - **Order / dependencies:** <sequence of items>
 - **Facts log:** <path to reports/, append not overwrite; requirements - see the section above>
 
 ---
 
+Statuses: `draft` - a draft, work not started; `approved` - the user has approved the contract, work in progress; `closed` - the result is accepted, the mission is closed (set by the Tech Lead at the closure step, `team/workflow.md`).
+
 ```yaml
 status: draft
 approved_by: none
 approved_at: none
+closed_at: none
 ```

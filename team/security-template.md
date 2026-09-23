@@ -2,7 +2,7 @@
 
 > **Disclaimer.** This is an illustrative template of security rules - not a reproduction of anyone's real configuration and not a ready-made "100%" solution. You alone are responsible for the security and data of your own applications: which set of rules is needed and sufficient is decided and assembled by you alone. A mistake leads to leaks and data loss - do not apply it blindly, check it against your own project.
 
-**Mandatory reading at the start of a session. Mandatory to follow when writing any code.**
+**Read by the Developer before work and by the Reviewer during review. Mandatory to follow when writing any code.**
 
 [1-2 sentences about the environment and the threat model: where the project is hosted, how access is exposed, what is the only defense against external access. Fill in for your own stack; a filled-in example is in `team/security-example.md`.]
 
@@ -82,7 +82,7 @@ Data from external sources (API, user input) that ends up in file names must go 
 
 ## Checklist before deploy
 
-One actionable item per each rule above. The Reviewer checks the code against this checklist.
+One actionable item per each rule above. The checklist is a reminder before deploy, not the full scope of the check: the Reviewer builds its own table from the sections of this file as a whole and notes in it how each section was checked.
 
 - [ ] Data folders are closed off from web access
 - [ ] CLI scripts block being run over the web

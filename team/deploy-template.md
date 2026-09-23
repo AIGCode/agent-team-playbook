@@ -15,10 +15,10 @@ The document is read and executed by the user manually: they copy commands one b
 3. **State where the command is executed** - on the server (SSH) or locally (PowerShell/Bash). If the whole instruction is on the server - say so once in the introduction.
 4. **Exact paths.** Source (`<project>/dev/<app>/...`) -> destination on the server (the full path). State the server root explicitly.
 5. **Placeholders in CAPS** (`CLIENT`, `AMOUNT`, `DATE`). If the value is already known at the time of writing - substitute it and mark that it has been substituted.
-6. **Back up unique data (index, logs) before changes** - it is not in git.
-7. **Syntax check** (`php -l`) for each modified PHP file before running.
-8. **Rollback** - how to return to the previous state for each modified artifact (git / backup).
-9. **Result verification** - both in the code/index and on the web, with concrete expected values (tie it to the "User verification" checklist from the contract).
+6. **Back up unique data (index, logs) before the upload** - it is not in git, and if the upload breaks something, there will be nowhere to restore it from.
+7. **Syntax check - before the file goes live.** On many stacks a file starts serving visitors the moment it is copied to the production path, so checking it there is already too late: while the check is running, the broken file returns errors. Check each modified file locally or in a temporary folder on the server - using the method from "Local environment" in the Developer role's `<context>` (e.g. `php -l` for PHP), and only after a clean check move it to the production path. Order of steps: backup → check → upload. If the check finds an error - do not upload the file and report it.
+8. **Rollback** - how to return to the previous state for each modified artifact (git / backup). The code is rolled back to the version before the mission - the commit made before launching the Developer (`<hash>`, filled in by the Developer). Not to `HEAD`: after the Developer their work has already been committed, and `HEAD` will return the same broken version.
+9. **Result verification** - the last step of the document: a command, button or page by which the user sees that everything works, with concrete expected values. Every step above already verifies itself (expected response, rule 2), and the final check is inside the document too - do not refer outside it. The user runs their own checks if they wish.
 10. **Reworking an already-run DEPLOY (a repeat iteration).** If you are not creating the document from scratch but reworking a DEPLOY that the user has already run through - at the very beginning (before "What we deploy") give an "In short - what to do and what is new" block: number the user's actions in order and explicitly highlight what has changed since the previous run and from which step to start. The user works from the latest version and should not have to guess the delta themselves. Changes inside the code that the user does not make by hand - mark separately: "the script does this, not needed by hand".
 11. **The document is executed mechanically, step by step.** Everything that has to be done is a separate numbered step; the text between steps is context, not action. Checking the finished document: go through the steps only, without reading the explanations between them - it should work. If the script changed, re-uploading it to the server is a separate step before the first command that uses it (including in a sub-block added later).
 
@@ -54,15 +54,7 @@ Expected response: `<...>` OR: Send me the output.
 
 ---
 
-## Step 1. Upload the modified files to the server
-
-Copy (manually, as usual) to the server:
-- `<project>/dev/<app>/<file>` -> `<SERVER_ROOT>/<app>/<file>`
-- `<project>/dev/<app>/<file>` -> `<SERVER_ROOT>/<app>/<file>`
-
----
-
-## Step 2. Back up unique data (if affected)
+## Step 1. Back up unique data (if affected)
 
 <Index/logs/config that are not in git. If the deploy does not touch them - remove the step.>
 
@@ -74,13 +66,23 @@ Expected response: `<...>`.
 
 ---
 
-## Step 3. Syntax check on the server
+## Step 2. Syntax check before the upload
+
+<Where we check - per the project's "Local environment": locally or in a temporary folder on the server, closed to web access, but not on the production path. If the check is in a temporary folder - first copy the files there as a separate action; delete the folder - at Step 7.>
 
 ```
-<cd into the root + php -l for each PHP file; one command per block>
+<syntax check command for one modified file (e.g. php -l <temporary path>/<file>); one command per block>
 ```
 
-Each must return `No syntax errors detected`. On an error - do NOT continue, roll back (Step 6) and report.
+Expected response: `<the clean check response, e.g. No syntax errors detected>`. On an error - do not upload the file, do not continue, and report: the production path has not been touched yet, there is nothing to roll back.
+
+---
+
+## Step 3. Upload the modified files to the server
+
+Only after a clean check at Step 2. Copy (manually, as usual) to the server:
+- `<project>/dev/<app>/<file>` -> `<SERVER_ROOT>/<app>/<file>`
+- `<project>/dev/<app>/<file>` -> `<SERVER_ROOT>/<app>/<file>`
 
 ---
 
@@ -108,7 +110,7 @@ Expected response: `<concrete values>`.
 
 On the web:
 - Open `<URL>`
-- <what should be visible - tie it to the "User verification" items from the contract>
+- <what should be visible - concrete values>
 - <what should NOT have changed - regressions>
 
 ---
@@ -121,7 +123,7 @@ On the web:
 <command to roll back the data from the backup, one line>
 ```
 
-Restore the code from git: `git show HEAD:<project>/dev/<app>/<file>` or from your own copy.
+Restore the code from git - from the pre-mission commit made before launching the Developer: `git show <hash>:<project>/dev/<app>/<file>` (`<hash>` is filled in by the Developer) or from your own copy. `HEAD` is not suitable for rollback: it already contains the Developer's work.
 
 ---
 

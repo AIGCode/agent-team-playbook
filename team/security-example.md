@@ -2,7 +2,7 @@
 
 > **Disclaimer.** This is an illustrative example of possible security settings for a PHP application on shared hosting - not a reproduction of anyone's real configuration and not a ready-made "100%" template. You alone are responsible for the security of your own applications: which set of rules is needed and sufficient is decided and assembled by you alone. A mistake in this area leads to leaks and data loss - do not copy the example blindly, check it against your own project.
 
-**Mandatory reading at the start of a session. Mandatory to follow when writing any code.**
+**Read by the Developer before work and by the Reviewer during review. Mandatory to follow when writing any code.**
 
 > A filled-in example for a set of PHP applications on shared hosting (Apache). The data is fictitious (`apps.example.com`). It shows how the areas from `team/security-template.md` are locked down on a specific stack. Your own project fills it in for its own stack and environment.
 
