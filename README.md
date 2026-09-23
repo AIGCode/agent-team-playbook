@@ -6,12 +6,6 @@
 
 > The role prompts and task complexity are designed for models in the Opus 4.8 class and above. On weaker models quality is not guaranteed. The framework is written for Claude Code. If you work with another tool or model, ask it to find the Claude Code dependencies in the framework and adapt them to itself.
 
-## Three words
-
-- **Role** - an instruction file: who the chat will be in this work.
-- **Tech Lead** - the role of the chat that runs the work and talks to you.
-- **Skill** - a ready-made Claude Code procedure that you run by name.
-
 ## Installation
 
 Put the `team-playbook/` folder in `~/.claude/team-playbook/`. This is the framework - a source folder, not a project: the skills take the team and the templates from it for every new project. You can also put it elsewhere - then `team-init` (it takes the team and the templates from the framework) will ask for the path to it. Copy the skills from `skills/` into `~/.claude/skills/`, one folder per skill.
@@ -56,16 +50,12 @@ If the team was deferred - deploy it later with the `team-init` skill.
 
 ## What's inside
 
-- `team/` - the team framework: roles (`roles/`), the mission chain (`workflow.md`), launching agents (`RUN.md`), templates (contract, task, deploy, security - `security-template.md` and the PHP example `security-example.md`), report evaluation. The placeholders (`<project>`, `<app>`, `<SERVER_ROOT>`, `<model>`, `[brief project description]`, "Local environment" for the Developer and the Tester) are filled in for the specific project; if the project's stack is not PHP, filling them in is not enough - the roles are also rewritten for the stack (see "For your own project").
+- `team/` - the team framework: roles (`roles/`), the mission chain (`workflow.md`), launching agents (`RUN.md`), templates (contract, task, deploy, security - `security-template.md` and the PHP example `security-example.md`), report evaluation. The placeholders (`<project>`, `<app>`, `<SERVER_ROOT>`, `<model>`, `[brief project description]`, "Local environment" for the Developer and the Tester) are filled in for the specific project; if the project's stack is not PHP, filling them in is not enough - the roles are also rewritten for the stack (see `TEAM.md`, "Roles").
 - `skills/` - three skills:
   - `project-init` - create and organize a new project (file structure).
   - `team-init` - deploy the team into a project from the framework.
   - `new-role` - create a new team role or rewrite an existing one for your stack.
 - `TEAM.md` - the team's operating principles (read before the first mission).
-
-## For your own project
-
-**What carries over and what is adapted.** The principles carry over: the mission chain, the contract as a gate, gates with skip conditions, one writer at a time, scope isolation, report formats, load-bearing elements, and templates. They do not depend on the stack and work in any project. What is tied to the stack is adapted: the roles' stack rules, the references tables, checklists, the test strategy. The roles in `team/roles/` are a working sample for PHP on shared hosting, not a ready-made team for any project: filling in the placeholders is not enough if the stack is different. The roles are rewritten for your stack with the `new-role` skill - the role's purpose, its boundaries, and the report format stay, the antipatterns stay in meaning (the stack specifics in them are replaced), the PHP rules and examples are replaced with the rules of your stack.
 
 ## What to read next
 
@@ -74,7 +64,7 @@ If the team was deferred - deploy it later with the `team-init` skill.
 3. `team/roles/` - the roles, a working sample for PHP (developer, checker, reviewer, tester, researcher, architect, techlead); they are rewritten for your stack with the `new-role` skill.
 4. `team/workflow.md` and `team/RUN.md` - the mechanics of a mission and of launching.
 
-From there, go deeper via the links.
+From there, follow the links inside these files: where a topic is covered in more detail in another document, there is a link to it.
 
 ---
 
