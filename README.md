@@ -26,24 +26,15 @@ Put the `team-playbook/` folder in `~/.claude/team-playbook/`. This is the frame
 ## Lifecycle
 
 ```
-New project
-  -> skill project-init: create the project, ask "team now or later?"
-  -> skill team-init: deploy team/ into the project, fill in the placeholders;
-     if the stack is not PHP - call new-role for each role with stack-specific parts
-     (Developer, Architect, Reviewer, Tester, the Tech Lead's references, the Checker's steps and examples;
-     the Researcher does not depend on the stack)
-  -> new chat: the user assigns the Tech Lead role
-     (see "Getting started")
-  -> if the project needs an architecture (there is an application or a system
-     of several components) - the first mission of a new application
-     is architectural, with its own contract:
-     the Architect writes ARCHITECTURE.md, the user accepts the document,
-     the mission is closed; all subsequent contracts rely on it
-  -> work: the Tech Lead runs missions
-     (contract -> Developer -> Checker -> Reviewer -> Tester: preparation
-     -> deploy -> Tester: run)
-  -> mission closure: the contract is closed (status: closed), the project's plan and decisions
-     are updated, the work is committed
+Task
+  -> research: gather what is known
+  -> project: materials and decisions are kept in one place
+  -> team: joins when the task has grown
+  -> architecture: if there is something to hold together
+  -> missions in a loop:
+       contract -> work -> check -> acceptance -> closing
+       (the project's plan and decisions are updated after each one)
+  -> project done
 ```
 
 If the team was deferred - deploy it later with the `team-init` skill.
