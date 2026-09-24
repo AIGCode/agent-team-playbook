@@ -34,7 +34,7 @@ The roles in `team/roles/` are a working sample for PHP on shared hosting. The p
 - **Tester** (reader) - plans and runs tests after deploy; on production, does only checks without consequences themselves and does not run in parallel with others.
 - **Researcher** (reader) - gathers information from the web and files.
 
-Who to launch when - `team/ROLES.md`. How to launch - `team/RUN.md`.
+Who to launch when - `team/ROLES.md`. How to launch - `team/RUN.md`; Cursor support - `team/RUN_CURSOR.md`, built into the `team-init` skill.
 
 ## Load-bearing
 

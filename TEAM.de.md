@@ -34,7 +34,7 @@ Die Rollen in `team/roles/` sind ein funktionierendes Muster für PHP auf Shared
 - **Tester** (lesend) - plant und führt Tests nach dem Deploy durch; auf der Produktion macht er selbst nur Prüfungen ohne Folgen und läuft nicht parallel zu anderen.
 - **Researcher** (lesend) - sammelt Informationen aus dem Web und aus Dateien.
 
-Wen wann starten - `team/ROLES.md`. Wie starten - `team/RUN.md`.
+Wen wann starten - `team/ROLES.md`. Wie starten - `team/RUN.md`; Unterstützung für Cursor - `team/RUN_CURSOR.md`, in den Skill `team-init` integriert.
 
 ## Tragende Elemente
 
