@@ -1,4 +1,4 @@
-[English](TEAM.md) · Українська
+[English](TEAM.md) · Українська · [Deutsch](TEAM.de.md)
 
 # Принципи роботи команди
 

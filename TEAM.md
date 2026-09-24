@@ -1,4 +1,4 @@
-[English](TEAM.md) · [Українська](TEAM.uk.md)
+[English](TEAM.md) · [Українська](TEAM.uk.md) · [Deutsch](TEAM.de.md)
 
 # Team operating principles
 

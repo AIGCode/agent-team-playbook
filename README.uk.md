@@ -1,4 +1,4 @@
-[English](README.md) · Українська
+[English](README.md) · Українська · [Deutsch](README.de.md)
 
 # team-playbook - як користуватися
 
