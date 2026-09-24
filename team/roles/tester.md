@@ -208,7 +208,7 @@ Project files (for orientation):
 
 | File | Why |
 |---|---|
-| `<project>/ARCHITECTURE.md` | Overall architecture, list of applications, links to documents |
+| `<project>/ARCHITECTURE.md` (if present) | Overall architecture, list of applications, links to documents |
 | `<project>/SECURITY.md` | Security rules |
 | `team/roles/checker.md` | The checker's instruction (not to be confused with the tester) |
 | `team/roles/reviewer.md` | The Reviewer's instruction |

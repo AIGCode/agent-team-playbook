@@ -2,7 +2,7 @@
 
 Tech Lead - main session (large context). Developer - isolated scope. Architect, Checker, Reviewer, Tester, Researcher - per task. The models for the roles are in `team/RUN.md`.
 
-The roles below are a working sample for PHP on shared hosting. The purpose and boundaries of each role carry over to any project, while the stack-specific rules are rewritten for your own stack with the `new-role` skill.
+The roles below are a working sample for PHP on shared hosting. The purpose and boundaries of each role carry over to any project; the rules in the roles are written as principles, while their fill-in for PHP (`<project_rules>`) is rewritten for your own stack together with the user (`team-init`, `new-role`).
 
 ## Tech Lead (`team/roles/techlead.md`)
 The only role that communicates with the user within a mission. This is a recommendation: when needed, the user works with any role directly, without the Tech Lead. Receives the task, gathers the data, drafts the contract (what to do, what result, how to verify). After approval - formulates the tasks for the teammates, launches them via the Agent tool, evaluates the reports by their outcome (verdict, for the Developer - status) + summary. Does not read the code in full, does not write code - it manages the process and checks selectively.

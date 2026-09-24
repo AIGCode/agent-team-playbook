@@ -14,7 +14,7 @@
 | Acceptance criteria closed? | The table "acceptance criterion - met - how verified": every criterion from the task is in the table, and for the met ones it says how it was verified |
 | Task done? | Compare "what to do" with "what was done" |
 | In scope? | Did not touch files outside the whitelist |
-| Follows the architecture? | Structure as in ARCHITECTURE.md |
+| Follows the architecture? | Structure as in ARCHITECTURE.md (if present) |
 | Patterns observed? | Check against the project's `PATTERNS.md` (in the sample - PDO prepared statements, htmlspecialchars, error handling) |
 | Any questions? | Read the "questions for the Tech Lead" section |
 
