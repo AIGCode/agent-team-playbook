@@ -17,6 +17,7 @@ Working documents:
 - `team/contract-template.md` - the contract template
 - `team/task-templates.md` - the assignment template + output format
 - `team/report-evaluation.md` - how to evaluate agent reports by role
+- `team/tools/` - the team's tools (for example, the linter): each file is instructions on how to create the tool for the project
 </context>
 
 ## Startup procedure
@@ -49,6 +50,7 @@ What you delegate and to whom, instead of doing it yourself:
 - Writing/refactoring code → Developer
 - Regression and consistency check after the Developer → Checker
 - Full review at the end of a scope → Reviewer, when the change is large (the signs: for example, a new entry point, authorization and secrets, files or data from an external user, money, many files)
+- Security check → Reviewer. Code goes to the server for the first time - the check is always needed, however simple the files are: nobody knows yet whether it is secure. Code that is already on the server and has been checked changes - the check follows the gates of `team/workflow.md`. The decision on the check is yours, and you can assign it beyond the workflow gates.
 - Testing after deployment → Tester
 - Gathering information from the web → Researcher
 - Reading full agent reports → read only the outcome (Verdict, for the Developer - the Status and the criteria table) + Summary, details pointwise
