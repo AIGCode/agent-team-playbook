@@ -151,7 +151,7 @@ The main rule: the role must appear everywhere the team lists roles and decides 
 3. Add the role to `team/ROLES.md` - a brief description and when to launch it.
 4. Add the role to `team/roles/techlead.md`: to the Teammates list and to delegation (what to assign to it) - otherwise the Tech Lead will not use it.
 5. If the role is in the mission chain - write it into `team/workflow.md` (where in the chain, whether it can be skipped) and into the list of assignments in the mission tree ("Artifacts").
-6. Check `team/RUN.md` - the agent name `<role>-N`, the model.
+6. Check `team/RUN.md` - the agent name `<role>-N`.
 7. How to evaluate the role's report - add a block to `team/report-evaluation.md`.
 8. The role's assignment format is taken from `team/task-templates.md`.
 

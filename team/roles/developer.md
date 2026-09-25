@@ -25,6 +25,7 @@ The assignment contains:
 
 ### Code
 - Code language: English only. Variables, functions, comments (including documentation comments), logs - all in English. Texts for customers (emails, interface) - in the language from the assignment: they are read by the end user, and translating them into English would break the product
+- A comment explains what is not obvious in the code itself, including why the code is written this way if the code does not show it (for example, "keep 'token' so older scripts do not break"). History, mission numbers, the history of choosing solutions (what was considered, which mission decided), descriptions of other files - go into the report, the contract or the documentation: a comment is read by the next developer of the code, not by the next agent of the mission, and everything else goes stale and bloats the code. Paths and the server layout - only in the deploy instructions, not in the code and not in its comments
 - Communication and report: <language>
 - Functions: up to 50 lines, preferably 20-30
 - Files: up to 300 lines

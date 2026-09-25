@@ -33,7 +33,7 @@ Tech Lead → Tester: test run on production (automated + instructions for the m
   ↓
 Tech Lead → User: test results + manual steps (B/C)
   ↓ (the user has accepted the result)
-Tech Lead: mission closure - in the contract `status: closed`, `closed_at`; the project's plan and decisions updated (`PLAN.md`, `DECISIONS.md`); the work committed
+Tech Lead: mission closure - in the contract `status: closed`, `closed_at`; the project's plan and decisions updated (`PLAN.md`, `DECISIONS.md`); a commit proposed to the user (commit and push - after the user agrees)
 ```
 
 Closure is a separate step, because without it the next session cannot tell a finished mission from one in progress: the contract stays in `approved` (approved, work in progress), and the plan shows the old state.
@@ -43,7 +43,7 @@ Closure is a separate step, because without it the next session cannot tell a fi
 - One writer (Developer, Architect) at a time. Read-only roles (Checker, Reviewer, Tester, Researcher) run in parallel if their scopes do not overlap. Exception - the Tester on production (RUN): its requests reach the live site, so during that time it works alone
 - The Tech Lead does not go back to the user for routine decisions. Return to the user on: a blocker, going beyond the contract scope, a user's choice
 - Agents do not edit team/ files (roles, workflow, templates). The Tech Lead edits them only when the user explicitly asks for it because the document does not fit the project's tasks
-- Git commit + push before and after the Developer. Before launching the Developer: check git status, commit and push any uncommitted changes (a clean state). After the Developer finishes: commit and push their work
+- The Tech Lead keeps track of when it is time to commit and proactively tells the user: before launching the Developer (a clean state), after the Developer's work, after a closed part of the contract. Commit and push - only after the user agrees
 - A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead
 - The project's patterns (`PATTERNS.md`, if it exists) - the canon of "how": the Developer checks against it before coding, the Checker verifies conformance
 

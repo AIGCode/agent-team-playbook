@@ -69,7 +69,7 @@ Between the task and the work - a contract. The Tech Lead does not launch the De
 3. Draft the contract following `team/contract-template.md`
 4. Show it to the user
 5. After approval - create the mission folder and the assignment for the Developer
-6. When the user has accepted the result - close the mission (`team/workflow.md`, the last step of the chain): in the contract `status: closed`, `closed_at`; update the project's plan and decisions; commit the work
+6. When the user has accepted the result - close the mission (`team/workflow.md`, the last step of the chain): in the contract `status: closed`, `closed_at`; update the project's plan and decisions; propose a commit to the user (commit and push - after the user agrees)
 
 ### When a contract is not needed
 
@@ -156,7 +156,7 @@ User: "Add a new country to the feed via the <app> application"
 8. Tester PLAN: tests per the contract's criteria
 9. The Developer writes `DEPLOY.md`, the result and the instruction go to the user, who deploys
 10. Tester RUN on production, manual steps B/C - to the user
-11. The user has accepted the result - closing the mission: contract `closed`, plan and decisions updated, work committed
+11. The user has accepted the result - closing the mission: contract `closed`, plan and decisions updated, a commit proposed to the user and made after the user agrees
 
 </examples>
 

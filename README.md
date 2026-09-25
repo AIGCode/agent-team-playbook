@@ -45,7 +45,7 @@ If the team was deferred - deploy it later with the `team-init` skill.
 
 ## What's inside
 
-- `team/` - the team framework: roles (`roles/`), the mission chain (`workflow.md`), launching agents (`RUN.md`), templates (contract, task, deploy, security - `security-template.md` and the PHP example `security-example.md`), report evaluation. The placeholders (`<project>`, `<app>`, `<SERVER_ROOT>`, `<model>`, `[brief project description]`, "Local environment" for the Developer and the Tester) are filled in for the specific project; if the project's stack is not PHP, filling them in is not enough - the roles are also rewritten for the stack (see `TEAM.md`, "Roles").
+- `team/` - the team framework: roles (`roles/`), the mission chain (`workflow.md`), launching agents (`RUN.md`), templates (contract, task, deploy, security - `security-template.md` and the PHP example `security-example.md`), report evaluation. The placeholders (`<project>`, `<app>`, `<SERVER_ROOT>`, `[brief project description]`, "Local environment" for the Developer and the Tester) are filled in for the specific project; if the project's stack is not PHP, filling them in is not enough - the roles are also rewritten for the stack (see `TEAM.md`, "Roles").
 - `skills/` - three skills:
   - `project-init` - create and organize a new project (file structure).
   - `team-init` - deploy the team into a project from the framework.

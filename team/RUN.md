@@ -26,7 +26,6 @@ The Tech Lead reads the role file (`team/roles/<role>.md`), formulates the task 
 Agent:
   name: "developer-N" | "architect-N" | "checker-N" | "reviewer-N" | "tester-N" | "researcher-N"
   subagent_type: "general-purpose"
-  model: "<model>" (see section 3; omit it only when falling back to a backup)
   prompt: [instruction from team/roles/*.md + task]
 ```
 
@@ -64,23 +63,7 @@ To switch to an agent by hand - the up/down arrows in the agents panel, then Ent
 
 ## 3. Models
 
-All roles run on a single model - `<model>` (an Agent tool alias, e.g. `opus`). Pass it as the `model` parameter when launching an agent; the Tech Lead session is set via `/model`. The prompts are designed for models of the Opus 4.8 class and above (see README).
-
-| Role | How it is set |
-|------|--------------|
-| Tech Lead | Main session (`/model`) |
-| Developer | `model: "<model>"` |
-| Architect | `model: "<model>"` |
-| Checker | `model: "<model>"` |
-| Reviewer | `model: "<model>"` |
-| Tester | `model: "<model>"` |
-| Researcher | `model: "<model>"` |
-
-The Agent tool accepts only aliases (`opus`, `sonnet`, `haiku`, etc.) - a specific version cannot be set via a parameter.
-
-### Falling back to a backup model
-
-If the primary model is temporarily unavailable (server overload `overloaded_error` / HTTP 529, the agent does not start or breaks off at startup, model errors instead of a reply) - switch the MAIN session's model via `/model` to the backup, and do NOT pass the `model` parameter to Agent: the agent will inherit the session's model. When the primary is available again - restore `model: "<model>"`. A slow or unsuccessful agent reply is not a reason to fall back; that is a matter of the task, not the model.
+By default an agent runs on the main session's model: do not pass the `model` parameter to Agent. Changing an agent's model, higher or lower, is possible only by the user's decision: the Tech Lead asks before the launch and explains why. The prompts are designed for models of the Opus 4.8 class and above (see README).
 
 To confirm which model an agent is actually running on, ask it, as its first action, to send the exact ID of its model from the system prompt.
 

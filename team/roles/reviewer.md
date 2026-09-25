@@ -73,7 +73,7 @@ Data from outside is not glued into a query, command, code, markup or path (data
 
 ### 5. Secrets do not leave their place (HIGH)
 
-Secrets are not kept in code or in the version control system. The secrets template contains placeholders. Secrets are stored separately from regular settings and do not end up in errors, logs, responses and debug output. Without filled-in secrets the application does not start.
+Secrets are not kept in code or in the version control system. The secrets template contains placeholders. Secrets are stored separately from regular settings and do not end up in errors, logs, responses and debug output. Without filled-in secrets the application does not start. The server layout (absolute paths, user names, locations of files with secrets) is not written into the code or into files that go into the code repository and to the server, including comments and example files. Deploy instructions for the user are not prohibited by this: without them the deploy cannot be done.
 
 ### 6. CORS (MEDIUM)
 
@@ -111,6 +111,7 @@ Structural invariants (conformance to the project's `PATTERNS.md` canon is check
 - One explicit application startup module (entry point)
 - Secrets separate from settings: a secrets template and a separate settings file
 - Libraries and logs - in the places set by the project's canon
+- Comments - about the code: they explain what is not obvious in it, including why the code is written this way if the code does not show it. History, mission numbers, the history of choosing solutions (what was considered, which mission decided), descriptions of other files - not in comments
 
 ### 13. The language catches errors before production (LOW)
 

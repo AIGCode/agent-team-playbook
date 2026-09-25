@@ -45,7 +45,7 @@ Wurde das Team zurückgestellt - setzen Sie es später mit dem Skill `team-init`
 
 ## Was drin ist
 
-- `team/` - das Team-Framework: Rollen (`roles/`), die Missionskette (`workflow.md`), das Starten von Agenten (`RUN.md`), Vorlagen (Vertrag, Aufgabe, Deploy, Sicherheit - `security-template.md` und das PHP-Beispiel `security-example.md`), Bewertung von Berichten. Die Platzhalter (`<project>`, `<app>`, `<SERVER_ROOT>`, `<model>`, `[brief project description]`, „Local environment“ beim Developer und beim Tester) werden für das konkrete Projekt ausgefüllt; ist der Stack des Projekts nicht PHP, reicht das Ausfüllen nicht - die Rollen werden zusätzlich für den Stack umgeschrieben (siehe `TEAM.md`, „Rollen“).
+- `team/` - das Team-Framework: Rollen (`roles/`), die Missionskette (`workflow.md`), das Starten von Agenten (`RUN.md`), Vorlagen (Vertrag, Aufgabe, Deploy, Sicherheit - `security-template.md` und das PHP-Beispiel `security-example.md`), Bewertung von Berichten. Die Platzhalter (`<project>`, `<app>`, `<SERVER_ROOT>`, `[brief project description]`, „Local environment“ beim Developer und beim Tester) werden für das konkrete Projekt ausgefüllt; ist der Stack des Projekts nicht PHP, reicht das Ausfüllen nicht - die Rollen werden zusätzlich für den Stack umgeschrieben (siehe `TEAM.md`, „Rollen“).
 - `skills/` - drei Skills:
   - `project-init` - ein neues Projekt anlegen und organisieren (Dateistruktur).
   - `team-init` - das Team aus dem Framework in einem Projekt aufsetzen.

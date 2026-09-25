@@ -28,7 +28,7 @@ If a FAIL-level check cannot verify statically in a specific place (the value co
 
 ## Where the checks come from and when to build
 
-The sources of the checks are `PATTERNS.md`, `SECURITY.md` and the project's architecture. A rule gets into the linter if it can be checked by the text of the code: a name, a file location, a forbidden call, a mandatory option. A rule about meaning stays with the Checker and the Reviewer.
+The sources of the checks are `PATTERNS.md`, `SECURITY.md` and the project's architecture. A rule gets into the linter if it can be checked by the text of the code: a name, a file location, a forbidden call, a mandatory option. A rule about meaning stays with the Checker and the Reviewer. Checks of comments (mission numbers, absolute paths) are easily caught by a machine - they are worth including; the source is the Developer's and the Reviewer's role rules about comments.
 
 That is why the linter is built after these documents: without them there is nothing to check against, and checks written before the rules lock in accidental decisions. When exactly to build it - the Tech Lead decides per project: for example, as the first item of the development plan, so as to accept all the following items with it, or later, when the rules have settled. The rules change - the linter is extended by the same mission as the rule, otherwise it checks against outdated ones.
 
