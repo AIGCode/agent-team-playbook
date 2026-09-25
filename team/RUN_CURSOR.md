@@ -55,7 +55,7 @@ Task:
 Task:
   description: <role> - <mission>
   subagent_type: generalPurpose
-  prompt: [section 5, long form: the full text of team/roles/<role>.md above the task]
+  prompt: [section 5, long form: links to the role and the task]
 ```
 
 Whether there is a wrapper in `.cursor/agents/` does not matter for this switch. In the run the role with a wrapper was visible in the chat's list of subagents, yet Task still answered `Invalid enum` and accepted only the built-in types (`generalPurpose`, `explore`, etc.). Wrappers are needed for `/<role>` in the chat and for delegation by Cursor itself, while the role name in Task is an attempt, not a guarantee.
@@ -121,28 +121,24 @@ The same as in Claude Code: folder `team/missions/<NNN>_<name>/`, `contract.md` 
 
 ## 5. Prompt for a subagent
 
-**Short form** - only if `subagent_type` is the role's wrapper and Task accepted the name. The subagent reads the role text itself via the wrapper (section 1):
+The prompt does not repeat the text of the role and the task, it gives links to them: the role and the task have one source - the file on disk.
+
+**Short form** - only if `subagent_type` is the role's wrapper and Task accepted the name. The subagent reads the role itself via the wrapper (section 1):
 
 ```
---- TASK ---
+Your task is team/missions/<NNN>_<name>/tasks/<role>.md. As your first action, read it.
 
-[Full text of team/missions/<NNN>_<name>/tasks/<role>.md]
-
---- END ---
+[What from the role applies in this mission, if the role was not written for this project]
 
 Begin work. Write the report to team/missions/<NNN>_<name>/reports/<role>.md. In your reply, return the report's outcome + Summary + the path to the report.
 ```
 
-**Long form** - `generalPurpose` (there is no wrapper or Task rejected the role name). Above the task - the full text of the role, then the same as in the short form:
+**Long form** - `generalPurpose` (there is no wrapper or Task rejected the role name). A link to both the role and the task:
 
 ```
-[Full text of team/roles/<role>.md]
+Your role is team/roles/<role>.md, your task is team/missions/<NNN>_<name>/tasks/<role>.md. As your first action, read both files and accept this as your role, which you must follow until the end of this session.
 
---- TASK ---
-
-[Full text of team/missions/<NNN>_<name>/tasks/<role>.md]
-
---- END ---
+[What from the role applies in this mission, if the role was not written for this project]
 
 Begin work. Write the report to team/missions/<NNN>_<name>/reports/<role>.md. In your reply, return the report's outcome + Summary + the path to the report.
 ```

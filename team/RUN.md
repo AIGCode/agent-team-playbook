@@ -26,7 +26,7 @@ The Tech Lead reads the role file (`team/roles/<role>.md`), formulates the task 
 Agent:
   name: "developer-N" | "architect-N" | "checker-N" | "reviewer-N" | "tester-N" | "researcher-N"
   subagent_type: "general-purpose"
-  prompt: [instruction from team/roles/*.md + task]
+  prompt: [per section 5 - links to the role and the task]
 ```
 
 Deprecated parameters (the system ignores them, verified 2026-07-27):
@@ -35,7 +35,7 @@ Deprecated parameters (the system ignores them, verified 2026-07-27):
 
 From the launch result you MUST save the full `agentId` of the form `name@session-XXXX`. You need it if another agent takes over the name - then it can only be reached by ID.
 
-`subagent_type` for a long-lived role is `general-purpose`: the role is set by the text of `team/roles/<role>.md` in the prompt. The `Explore` and `Plan` types are one-shot and cannot be resumed.
+`subagent_type` for a long-lived role is `general-purpose`: the agent reads the role from `team/roles/<role>.md` via the link in the prompt (section 5). The `Explore` and `Plan` types are one-shot and cannot be resumed.
 
 One writer agent (Developer, Architect) at a time. Read-only agents (Checker, Reviewer, Tester, Researcher) run in parallel if their scopes do not overlap. Exception - the Tester in RUN mode: it makes requests to the live site, so while it is working, do not launch other agents.
 
@@ -76,13 +76,9 @@ Folder `team/missions/<NNN>_<name>/`, `contract.md` - from `team/contract-templa
 The prompt structure when calling the Agent tool:
 
 ```
-[Full text of team/roles/<role>.md]
+Your role is team/roles/<role>.md, your task is team/missions/<NNN>_<name>/tasks/<role>.md. As your first action, read both files and accept this as your role, which you must follow until the end of this session.
 
---- TASK ---
-
-[Full text of team/missions/<NNN>_<name>/tasks/<role>.md]
-
---- END ---
+[What from the role applies in this mission, if the role was not written for this project]
 
 Begin work. Write the report to team/missions/<NNN>_<name>/reports/<role>.md. When done, send the Tech Lead via SendMessage (to: "team-lead") the report's outcome + Summary + the path to the report - plain text does not reach the Tech Lead.
 ```
