@@ -111,7 +111,6 @@ Structural invariants (conformance to the project's `PATTERNS.md` canon is check
 - One explicit application startup module (entry point)
 - Secrets separate from settings: a secrets template and a separate settings file
 - Libraries and logs - in the places set by the project's canon
-- Comments - about the code: they explain what is not obvious in it, including why the code is written this way if the code does not show it. History, mission numbers, the history of choosing solutions (what was considered, which mission decided), descriptions of other files - not in comments
 
 ### 13. The language catches errors before production (LOW)
 

@@ -87,6 +87,9 @@ Step 3 finds those who refer to the changed element by name. But a place that ta
 
 Each inconsistency found - into issues as a separate type (not a regression and not a drift from a pattern), pointing to both places: the new one and the one it diverges from.
 
+### Step 5c: Check comments
+Since the code has already been re-read - in each new or changed file, read the comments and compare them with the Developer's rule about comments (`team/roles/developer.md`, section "Code", the item about comments). The rule lives there alone and is not retold here, so that the check does not diverge from it. Why this step belongs to the Checker: it is launched after each task, and there is no other check of comments - without it, nobody looks at comments on small edits. A violation - into issues: where the comment is, what is violated and where to move its content.
+
 ### Step 6: Write the report
 Write the report to the file from the assignment.
 
@@ -127,7 +130,7 @@ You see that the behavior changed and mark it as a regression. But the developer
 ### For each problem found:
 ```
 ### [SEVERITY] Problem description
-- Type: regression / drift from a pattern / inconsistency
+- Type: regression / drift from a pattern / inconsistency / comment
 - Change: file:line - what changed
 - Consumer (for an inconsistency - what it diverges from): file:line
 - Risk: what may break or drift apart
