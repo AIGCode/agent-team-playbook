@@ -65,7 +65,7 @@ It scales by the number of applications (the extraction rule):
 - **One application** - one architecture: `<project>/docs/<app>/ARCHITECTURE.md`. If the architecture is set up, every mission starts from it (the roles read the file of the needed application per the assignment).
 - **A server with several applications** - the server architecture is added in the root `<project>/ARCHITECTURE.md`: how the applications are placed, the list of applications, shared decisions, links to their `docs/<app>/ARCHITECTURE.md`. The detail of each application stays in its `docs/<app>/ARCHITECTURE.md`.
 
-When a section of one architecture grows too large, it is moved into a separate `ARCH_[TOPIC].md` file. In the main file a brief description + a link remains. The extensions are part of the architecture: the Architect writes and maintains them, just like the main `ARCHITECTURE.md`.
+When a section of one architecture grows too large, it is moved into a separate `ARCH_[TOPIC].md` file. The threshold is an architecture file longer than 200 lines. In the main file a brief description + a link remains. The extensions are part of the architecture: the Architect writes and maintains them, just like the main `ARCHITECTURE.md`.
 
 Extension examples:
 - `ARCH_STACK.md` - technology stack, versions, dependencies
@@ -85,7 +85,7 @@ The canon of "how": how recurring things are done in this project - naming (file
 
 Why: without a canon each agent derives the pattern anew from the neighboring code, which itself drifts apart - "clusters" of inconsistent decisions grow. With `PATTERNS.md` the Developer checks against it before coding, the Checker verifies conformance.
 
-It scales: a simple project - a single `PATTERNS.md`; a complex one - sets by role or by layer (`patterns/<name>.patterns.md`, for example `patterns/backend.patterns.md`, `patterns/frontend.patterns.md`). What to set up is decided by the Tech Lead by complexity.
+It scales: a simple project - a single `PATTERNS.md`; a complex one - sets by role or by layer (`patterns/<name>.patterns.md`, for example `patterns/backend.patterns.md`, `patterns/frontend.patterns.md`). The threshold for moving to sets is a `PATTERNS.md` longer than 200 lines. What to set up is decided by the Tech Lead by complexity.
 
 The entry format is a decision, not prose: "for X - always Y, not Z" + a micro-example. Do not silently make up a new situation: no pattern - the agent proposes it in the report (with the reason), the Tech Lead decides and adds it to `PATTERNS.md` - they are the only writer of patterns, so that the canon does not drift apart (in a project without a team - whoever runs the project).
 

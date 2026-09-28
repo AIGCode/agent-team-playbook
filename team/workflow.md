@@ -46,6 +46,7 @@ Closure is a separate step, because without it the next session cannot tell a fi
 - The Tech Lead keeps track of when it is time to commit and proactively tells the user: before launching the Developer (a clean state), after the Developer's work, after a closed part of the contract. Commit and push - only after the user agrees
 - A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead
 - The project's patterns (`PATTERNS.md`, if it exists) - the canon of "how": the Developer checks against it before coding, the Checker verifies conformance
+- A user-AI interaction document longer than 200 lines is split into parts by meaning, not by line count. The main file is a short table of contents: which part is about what and when to read it; the AI reads only the part it needs. Interaction documents are the ones the user and the AI work on together and that the AI rereads as the work goes on: `DEPLOY.md`, `ARCHITECTURE.md`, `PATTERNS.md`; the rule also applies to new documents of this kind, even if they are not in this list. Roles and skills are not interaction documents - roles have their own limit in `new-role`. Why: otherwise the whole document goes into the context anew on every access
 
 ## Artifacts
 
