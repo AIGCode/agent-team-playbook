@@ -19,9 +19,10 @@ The document is read and executed by the user manually: they copy commands one b
 7. **Syntax check - before the file goes live.** On many stacks a file starts serving visitors the moment it is copied to the production path, so checking it there is already too late: while the check is running, the broken file returns errors. Check each modified file locally or in a temporary folder on the server - using the method from "Local environment" in the Developer role's `<context>` (e.g. `php -l` for PHP), and only after a clean check move it to the production path. Order of steps: backup → check → upload. If the check finds an error - do not upload the file and report it.
 8. **Rollback** - how to return to the previous state for each modified artifact (git / backup). The code is rolled back to the version before the mission - the commit made before launching the Developer (`<hash>`, filled in by the Developer), if there is one; if there is no commit - from a backup or your own copy. Not to `HEAD`: the Developer's work may already have been committed, and `HEAD` will return the same broken version.
 9. **Result verification** - the last step of the document: a command, button or page by which the user sees that everything works, with concrete expected values. Every step above already verifies itself (expected response, rule 2), and the final check is inside the document too - do not refer outside it. The user runs their own checks if they wish.
-10. **Reworking an already-run DEPLOY (a repeat iteration).** If you are not creating the document from scratch but reworking a DEPLOY that the user has already run through - at the very beginning (before "What we deploy") give an "In short - what to do and what is new" block: number the user's actions in order and explicitly highlight what has changed since the previous run and from which step to start. The user works from the latest version and should not have to guess the delta themselves. Changes inside the code that the user does not make by hand - mark separately: "the script does this, not needed by hand".
+10. **Reworking an already-run DEPLOY (a repeat iteration).** If you are not creating the document from scratch but reworking a DEPLOY that the user has already run through - at the very beginning (before the steps) give an "In short - what to do and what is new" block: number the user's actions in order and explicitly highlight what has changed since the previous run and from which step to start. The user works from the latest version and should not have to guess the delta themselves. Changes inside the code that the user does not make by hand - mark separately: "the script does this, not needed by hand".
 11. **The document is executed mechanically, step by step.** Everything that has to be done is a separate numbered step; the text between steps is context, not action. Checking the finished document: go through the steps only, without reading the explanations between them - it should work. If the script changed, re-uploading it to the server is a separate step before the first command that uses it (including in a sub-block added later).
 12. **A DEPLOY longer than 200 lines is split by rollout stage.** Each stage is a separate part; the main `DEPLOY.md` sets the order of the parts: which one follows which. The AI rereads the document at every deploy step, and without the split the whole DEPLOY goes into the context anew each time; with parts - only the current stage.
+13. **Actions - only in numbered steps.** In the introduction and in the "In short" block, do not list the files to upload as a "what we deploy" list - it reads as an action, and the files get uploaded before the backup. If an overview is needed - its first line in bold: "**This is a description, do nothing. Start from step 1.**" (if the document's first step is a different one, for example step 0, - from it). The "In short" block is a pointer to the steps: the step number and what is new in it; the actions themselves - only in the steps. The backup always comes before the upload step. Why: the user executes the document top to bottom and has uploaded files from the introduction, skipping the backup.
 
 ---
 
@@ -31,15 +32,13 @@ The document is read and executed by the user manually: they copy commands one b
 
 ## In short - what to do and what is new (mandatory on a repeat iteration)
 
-<Only if this is a rework of an already-run DEPLOY. Number the user's actions in order; explicitly highlight what has changed since the previous run and from which step to start. Changes inside the script that need not be done by hand - mark "the script does this itself". If the document is created from scratch - this block is not needed.>
+<Only if this is a rework of an already-run DEPLOY. Number the user's actions in order; explicitly highlight what has changed since the previous run and from which step to start. Changes inside the script that need not be done by hand - mark "the script does this itself". Do not list the files to upload here - refer to step numbers (rule 13). If the document is created from scratch - this block is not needed.>
 
 ---
 
-What we deploy - exactly **<N>** files:
-- `<file>` - <what changed in one line>
-- `<file>` - <what changed>
+**This is a description, do nothing. Start from step 1.**
 
-Note: `<file>` was NOT changed in the mission - it is NOT deployed. <if applicable>
+<Overview - only if needed (rule 13): what the mission changes, in one or two sentences, without a list of files to upload - the files are listed in the upload step, after the backup. If the document's first step is a different one (for example, step 0) - that step in the bold line. Not needed - remove the whole block.>
 
 ---
 
