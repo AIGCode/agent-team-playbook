@@ -2,7 +2,7 @@
 
 # team-playbook - Anleitung
 
-> Alles, was ein Chat erarbeitet hat, bleibt in seiner Session: Schließen Sie den Chat, sind die Daten verloren. Ein Projekt bewahrt sie getrennt von den Sessions auf, und jeder neue Chat macht an derselben Stelle weiter.
+> Alles, was ein Chat erarbeitet hat, bleibt in seiner Session: Schließen Sie den Chat, sind die Daten verloren.
 >
 > Je größer das Projekt, desto schneller zerfällt es: Kontext geht verloren, Entscheidungen verschwimmen, Material verstreut sich über Chats. Das Framework hält das Projekt zusammen: Der gesamte Kontext lebt in den Dateien des Projekts, und die Arbeit wächst mit ihm - von einem einzelnen Chat bis zu einem Team aus Rollen.
 

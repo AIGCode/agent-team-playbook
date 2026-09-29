@@ -2,7 +2,7 @@
 
 # team-playbook - how to use
 
-> Everything a chat has worked out stays in its session: close the chat and the data is lost. A project keeps it separately from sessions, and any new chat continues from the same place.
+> Everything a chat has worked out stays in its session: close the chat and the data is lost.
 >
 > The bigger the project, the faster it falls apart: context gets lost, decisions drift, material scatters across chats. The framework holds the project together: all the context lives in the project's files, and the work grows with it - from a single chat to a team of roles.
 
