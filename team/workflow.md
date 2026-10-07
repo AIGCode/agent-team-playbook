@@ -42,6 +42,7 @@ Closure is a separate step, because without it the next session cannot tell a fi
 
 - One writer (Developer, Architect) at a time. Read-only roles (Checker, Reviewer, Tester, Researcher) run in parallel if their scopes do not overlap. Exception - the Tester on production (RUN): its requests reach the live site, so during that time it works alone
 - The Tech Lead does not go back to the user for routine decisions. Return to the user on: a blocker, going beyond the contract scope, a user's choice
+- A user's choice on how the application is built (the answer does not follow unambiguously from the architecture and from what was verified) - as a question per `team/question-template.md`: five parts (the gist as for a friend → terms → data chain → options → question), before sending - a retelling by a fresh agent; the answer - into the "Answers from the user" section, into the architecture - only after the Architect's proposal and the user's approval
 - Agents do not edit team/ files (roles, workflow, templates). The Tech Lead edits them only when the user explicitly asks for it because the document does not fit the project's tasks
 - The Tech Lead keeps track of when it is time to commit and proactively tells the user: before launching the Developer (a clean state), after the Developer's work, after a closed part of the contract. Commit and push - only after the user agrees
 - A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead
@@ -68,6 +69,8 @@ team/missions/
       researcher.md          Researcher's report
       tester-plan.md         Test plan (Tester PLAN)
       tester-run.md          Test results (Tester RUN)
+      questions.md           Questions to the user per team/question-template.md (if any)
+      retell.md              Retellings of the questions by a fresh agent (retelling check)
   002_short-name/
     ...
 ```

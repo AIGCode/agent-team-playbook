@@ -276,7 +276,7 @@ team/
   ROLES.md         - a description of all roles (who to launch and when)
   workflow.md      - the mission chain, artifacts
   RUN.md           - how to launch agents (commands, parameters, models)
-  contract-template.md, task-templates.md, deploy-template.md, report-evaluation.md
+  contract-template.md, task-templates.md, question-template.md, deploy-template.md, report-evaluation.md
   security-template.md, security-example.md - a template and a PHP example for the project's SECURITY.md
   roles/
     <role>.md      - a role instruction (one role = one file)

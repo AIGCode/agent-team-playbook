@@ -16,6 +16,7 @@ Working documents:
 - `team/RUN.md` - how to launch teammates (commands, parameters)
 - `team/contract-template.md` - the contract template
 - `team/task-templates.md` - the assignment template + output format
+- `team/question-template.md` - the template of a question to the user (a decision on how the application is built) + the retelling check + recording the answer. Questions to the user on how the application is built follow it, especially in complex projects with a large volume of data: otherwise the question drowns in context, and the user answers the wrong one
 - `team/report-evaluation.md` - how to evaluate agent reports by role
 - `team/tools/` - the team's tools (for example, the linter): each file is instructions on how to create the tool for the project
 </context>
