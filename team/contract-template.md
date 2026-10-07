@@ -73,7 +73,7 @@ Here: how it is built and what it looks like - the model, screens, the data path
 
 <!--
 The friend says: "Let's go through the details, I want to check." Walk them through everything.
-At the end of each paragraph, in parentheses - the item label (T1, E1...), by which part 2 is linked to it.
+At the end of each paragraph, in parentheses - the item label (T1, T2...), by which part 2 is linked to it.
 Here: the steps by stage (for example, before the build / the build) - in prose, a paragraph per stage, each with a label; what is outside the mission. There is no table of steps in part 1: the detailed "how we verify" for each step is in part 2, "Specification by item".
 End with what will tell you both it is done - a checklist: the work is accepted by it (part 2, "Acceptance"). The checklist contains every result from the "what you will get" list of layer 1 and every step label of this layer, each item has a step label. Each item has a visible result: what the user will see, not what the agent did. Below the checklist - the line "Not counted as done": which pro-forma answers do not close the work.
 A SUMMARY IS MANDATORY: layer 3 opens with a summary - what it covers and in which groups of steps, 2-3 sentences of prose. Before each table - a preview: what it covers and what matters most, 1-2 sentences; not a table of contents. Details are not shown without a summary.
