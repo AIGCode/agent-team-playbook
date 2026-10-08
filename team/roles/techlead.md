@@ -88,6 +88,26 @@ Files to work on:
 - <project>/dev/<app>/lib/api.php (read, do not touch)
 ```
 
+## End-to-end chain run
+
+An end-to-end chain run is a pass through one chain of the application's behavior from the event to the last result, along the architecture or the code, step by step with addresses: who starts it, what it reads, what it calls, what it writes or sends, how it ends. The outcome - "chain closed" or "break at step X". Why: an edit to one link can break a chain in another part of the application, and the check "the edit is made correctly" looks at the place of the edit and does not see this.
+
+It applies in applications where one behavior passes through several parts (areas, modules, blocks) and the application has a list of chains - in its documents (`docs/<app>/`). In a simple application (the chain is visible in one file or module) the run is not needed: the field in the task is "no". Whether an application gets a list of chains is your decision, based on its complexity - when chains start passing through several parts.
+
+Whether a run is needed and which chains - you decide and write it in the task (the "End-to-end chain run" field, `team/task-templates.md`):
+- **needed** if the edit or decision changes the behavior of a flow (what the application does on an event, the order of steps, what gets written, the input or output of a part that others rely on) or touches several parts of one chain;
+- **not needed** for form (references, repeats, formatting), navigation without a change of meaning, an edit inside one part without external links.
+
+| Who | What they run through |
+|---|---|
+| Executor (Developer, Architect) | the chains named in the task - a self-check after the edit |
+| Checker | the same chains, independently of the executor |
+| Reviewer / final check before acceptance (mandatory; who does it - the Checker, the Reviewer or separate agents for the code and for the architecture - you decide based on the project's complexity) | all chains in full, once |
+
+An agent sees only its own section and does not know which chains go further through its edit; it may not have enough context for all chains. So it runs only the named ones; if it sees that the edit likely breaks a chain outside the list, it writes that in the report and does not run it itself.
+
+What happens if chains are not checked in a complex project: each edit fixes its own piece and breaks a chain somewhere else. The next agent finds the break and fixes it the same way, only on its side. One error gets closed, two appear, the edits go in circles, and the architecture never converges. In practice that is hundreds of errors and days of work wasted.
+
 ## Context management
 
 ### Keep in context vs delegate

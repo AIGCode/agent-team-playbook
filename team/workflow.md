@@ -48,6 +48,7 @@ Closure is a separate step, because without it the next session cannot tell a fi
 - A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead
 - The project's patterns (`PATTERNS.md`, if it exists) - the canon of "how": the Developer checks against it before coding, the Checker verifies conformance
 - The architecture canon `team/architecture-canon.md` is mandatory for any architecture edit: a reference to it goes in every task that writes, edits or checks the architecture. The Architect writes per it, the Checker checks against it (including - no new repeats); a deviation = `[HIGH]`, the edit is not accepted
+- End-to-end chain run: whether it is needed and which chains - decided by the Tech Lead and written in the "End-to-end chain run" field of the task (`team/roles/techlead.md`, "End-to-end chain run"); the executor runs through the named chains after the work, the Checker - the same ones independently, the Reviewer / final check - all chains (mandatory; who does it is decided by the Tech Lead based on the project's complexity); in a simple application without a list of chains there is no run
 - A user-AI interaction document longer than 200 lines is split into parts by meaning, not by line count. The main file is a short table of contents: which part is about what and when to read it; the AI reads only the part it needs. Interaction documents are the ones the user and the AI work on together and that the AI rereads as the work goes on: `DEPLOY.md`, `ARCHITECTURE.md`, `PATTERNS.md`; the rule also applies to new documents of this kind, even if they are not in this list. Roles and skills are not interaction documents - roles have their own limit in `new-role`. Why: otherwise the whole document goes into the context anew on every access
 
 ## Artifacts
@@ -81,7 +82,7 @@ team/missions/
 | Step | Can be skipped if |
 |---|---|
 | Contract | The task is trivial (1-2 files, no risks) |
-| Checker | The changes are isolated (a new file, no consumers) and do not introduce their own variant of something the project already has (a second helper, a different name for the same concept): otherwise the consistency check is lost |
+| Checker | The changes are isolated (a new file, no consumers) and do not introduce their own variant of something the project already has (a second helper, a different name for the same concept): otherwise the consistency check is lost. Except a task where chains are named (end-to-end chain run) |
 | Reviewer | A small edit already covered by the Checker |
 | Tester | No deploy, preparation only |
 | DEPLOY.md | The changes do not go to the server (local analysis only / a one-off CLI artifact not copied to production) |

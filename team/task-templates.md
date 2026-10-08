@@ -24,6 +24,9 @@ Brief description:
 ## Constraints
 - Do not touch: [files/modules outside the scope]
 
+## End-to-end chain run
+[Chains from the application's list of chains that the agent runs through in full after the work - the path by addresses and the outcome "closed / break" into the report; chains outside the list it does not run, a suspected break - into the report] OR [no - the edit does not change the behavior of a flow / the application has no list of chains]. When it is needed - `team/roles/techlead.md`, "End-to-end chain run"
+
 ## Acceptance criteria
 - [ ] [Scenario works]
 - [ ] [Edge case handled]
