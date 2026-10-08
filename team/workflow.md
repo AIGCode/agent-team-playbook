@@ -7,7 +7,7 @@ User → Tech Lead: request
   ↓
 Tech Lead: data gathering + interview
   ↓ (if the project needs an architecture (there is an application or a system of several components), and it is missing or outdated)
-Tech Lead: a separate architectural mission with its own contract (the contract - based on the task, the code, and the documentation; the result - ARCHITECTURE.md; verification - the user reads and accepts the document) → task for the Architect → the user accepts the document → mission closure. The first mission of a new application is an architectural mission. Then the chain continues with the contract of the original task
+Tech Lead: a separate architectural mission with its own contract (the contract - based on the task, the code, and the documentation; the result - ARCHITECTURE.md; verification - the user reads and accepts the document) → task for the Architect → Checker per the architecture canon → the user accepts the document → mission closure. The first mission of a new application is an architectural mission. Then the chain continues with the contract of the original task
   ↓
 Tech Lead: reads `<project>/docs/<app>/ARCHITECTURE.md` (if the project has one), locates the files, drafts the contract
   ↓
@@ -47,6 +47,7 @@ Closure is a separate step, because without it the next session cannot tell a fi
 - The Tech Lead keeps track of when it is time to commit and proactively tells the user: before launching the Developer (a clean state), after the Developer's work, after a closed part of the contract. Commit and push - only after the user agrees
 - A mission is a container of work; the contract inside it is drafted when a result is being made from it (plain research - no contract). Plans are flexible: a large plan - many missions, a small one - a single mission; the size is set by the Tech Lead
 - The project's patterns (`PATTERNS.md`, if it exists) - the canon of "how": the Developer checks against it before coding, the Checker verifies conformance
+- The architecture canon `team/architecture-canon.md` is mandatory for any architecture edit: a reference to it goes in every task that writes, edits or checks the architecture. The Architect writes per it, the Checker checks against it (including - no new repeats); a deviation = `[HIGH]`, the edit is not accepted
 - A user-AI interaction document longer than 200 lines is split into parts by meaning, not by line count. The main file is a short table of contents: which part is about what and when to read it; the AI reads only the part it needs. Interaction documents are the ones the user and the AI work on together and that the AI rereads as the work goes on: `DEPLOY.md`, `ARCHITECTURE.md`, `PATTERNS.md`; the rule also applies to new documents of this kind, even if they are not in this list. Roles and skills are not interaction documents - roles have their own limit in `new-role`. Why: otherwise the whole document goes into the context anew on every access
 
 ## Artifacts

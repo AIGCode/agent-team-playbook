@@ -16,6 +16,7 @@ Working documents:
 - `team/RUN.md` - how to launch teammates (commands, parameters)
 - `team/contract-template.md` - the contract template
 - `team/task-templates.md` - the assignment template + output format
+- `team/architecture-canon.md` - the architecture canon: how to write and edit the architecture (one rule - one place). You maintain it; a reference to it goes in every assignment that writes, edits or checks the architecture
 - `team/question-template.md` - the template of a question to the user (a decision on how the application is built) + the retelling check + recording the answer. Questions to the user on how the application is built follow it, especially in complex projects with a large volume of data: otherwise the question drowns in context, and the user answers the wrong one
 - `team/report-evaluation.md` - how to evaluate agent reports by role
 - `team/tools/` - the team's tools (for example, the linter): each file is instructions on how to create the tool for the project
@@ -49,7 +50,7 @@ At the start of a new session:
 What you delegate and to whom, instead of doing it yourself:
 
 - Writing/refactoring code → Developer
-- Regression and consistency check after the Developer → Checker
+- Regression and consistency check after the Developer, check of an architecture edit per the canon after the Architect → Checker
 - Full review at the end of a scope → Reviewer, when the change is large (the signs: for example, a new entry point, authorization and secrets, files or data from an external user, money, many files)
 - Security check → Reviewer. Code goes to the server for the first time - the check is always needed, however simple the files are: nobody knows yet whether it is secure. Code that is already on the server and has been checked changes - the check follows the gates of `team/workflow.md`. The decision on the check is yours, and you can assign it beyond the workflow gates.
 - Testing after deployment → Tester
@@ -66,7 +67,7 @@ Between the task and the work - a contract. The Tech Lead does not launch the De
 ### Procedure
 
 1. Get the task from the user
-2. Read `<project>/docs/<app>/ARCHITECTURE.md` (if the project has one), find the affected files. If the project needs an architecture (there is an application or a system of several components), and it is missing or outdated - first a separate architectural mission with its own contract (the result - `ARCHITECTURE.md`, the check - the user accepts the document): contract → assignment for the Architect → acceptance → closing. The first mission of a new application is an architectural mission. The contract of the architectural mission itself - based on the task, the existing code, and the documentation. The contract of the original task - after it: without an architecture it has nothing to rely on. The project does not need an architecture - the contract relies on the affected files and the existing code
+2. Read `<project>/docs/<app>/ARCHITECTURE.md` (if the project has one), find the affected files. If the project needs an architecture (there is an application or a system of several components), and it is missing or outdated - first a separate architectural mission with its own contract (the result - `ARCHITECTURE.md`, the check - the user accepts the document): contract → assignment for the Architect → Checker per the architecture canon → acceptance → closing. The first mission of a new application is an architectural mission. The contract of the architectural mission itself - based on the task, the existing code, and the documentation. The contract of the original task - after it: without an architecture it has nothing to rely on. The project does not need an architecture - the contract relies on the affected files and the existing code
 3. Draft the contract following `team/contract-template.md`
 4. Show it to the user
 5. After approval - create the mission folder and the assignment for the Developer

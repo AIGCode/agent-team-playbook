@@ -29,7 +29,7 @@ The roles in `team/roles/` are a working sample for PHP on shared hosting. The p
 - **Tech Lead** (writer) - coordinator; in a mission, the only one who talks to the user (this is a recommendation: when needed, the user works with any role directly, without the Tech Lead), draws up the contract, hands out tasks, evaluates reports.
 - **Developer** (writer) - implements code per the task, strictly in the files handed to them.
 - **Architect** (writer) - designs the architecture and maintains its document; does not touch production code.
-- **Checker** (reader) - after the Developer, looks for regressions, drift from patterns, and inconsistencies (consistency): the new does not diverge from what already exists.
+- **Checker** (reader) - after the Developer (and after an architecture edit by the Architect), looks for regressions, drift from patterns, and inconsistencies (consistency): the new does not diverge from what already exists.
 - **Reviewer** (reader) - final review: security and structure.
 - **Tester** (reader) - plans and runs tests after deploy; on production, does only checks without consequences themselves and does not run in parallel with others.
 - **Researcher** (reader) - gathers information from the web and files.

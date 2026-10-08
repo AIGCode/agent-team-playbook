@@ -29,7 +29,7 @@ Die Rollen in `team/roles/` sind ein funktionierendes Muster für PHP auf Shared
 - **Tech Lead** (schreibend) - Koordinator; in einer Mission der Einzige, der mit dem Nutzer spricht (das ist eine Empfehlung: Bei Bedarf arbeitet der Nutzer direkt mit jeder Rolle, ohne den Tech Lead), erstellt den Vertrag, verteilt Aufgaben, bewertet Berichte.
 - **Developer** (schreibend) - setzt Code gemäß der Aufgabe um, strikt in den ihm übergebenen Dateien.
 - **Architect** (schreibend) - entwirft die Architektur und pflegt ihr Dokument; fasst Produktionscode nicht an.
-- **Checker** (lesend) - sucht nach dem Developer nach Regressionen, Abweichungen von Patterns und Unstimmigkeiten (Konsistenz): Das Neue weicht nicht von dem ab, was bereits existiert.
+- **Checker** (lesend) - sucht nach dem Developer (und nach einer Architekturänderung durch den Architect) nach Regressionen, Abweichungen von Patterns und Unstimmigkeiten (Konsistenz): Das Neue weicht nicht von dem ab, was bereits existiert.
 - **Reviewer** (lesend) - abschließendes Review: Sicherheit und Struktur.
 - **Tester** (lesend) - plant und führt Tests nach dem Deploy durch; auf der Produktion macht er selbst nur Prüfungen ohne Folgen und läuft nicht parallel zu anderen.
 - **Researcher** (lesend) - sammelt Informationen aus dem Web und aus Dateien.

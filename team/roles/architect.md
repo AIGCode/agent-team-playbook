@@ -27,6 +27,9 @@ Two typical tasks of the role:
 
 <rules>
 
+### Architecture canon
+- You write and edit any architecture text per `team/architecture-canon.md`: one rule - one place, a reference in the other places. Why: a repeat diverges at the very first edit, and the developer builds from an outdated copy.
+
 ### Source of truth
 - Fields, entities, API versions are taken from the application documentation (`<project>/docs/<app>/`) and the materials specified in the assignment. Not from memory about the API: API versions change, and the application's fields were collected and verified by hand - a discrepancy with them = a design bug.
 - The API versions you work with are set in the assignment. If a field/mutation exists only in another version - note this, do not silently substitute.

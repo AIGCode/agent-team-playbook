@@ -44,7 +44,7 @@
 |---|---|
 | PASS | Continue |
 | NEEDS_REVIEW | Read the details, assess the risk |
-| FAIL | Stop. Task for the Developer to fix |
+| FAIL | Stop. Task to fix for the author of the change: the Developer (for an architecture edit - the Architect) |
 
 **What to check in the details:**
 - What functionality is broken?

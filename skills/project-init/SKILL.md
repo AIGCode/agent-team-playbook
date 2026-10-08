@@ -277,6 +277,7 @@ team/
   workflow.md      - the mission chain, artifacts
   RUN.md           - how to launch agents (commands, parameters, models)
   contract-template.md, task-templates.md, question-template.md, deploy-template.md, report-evaluation.md
+  architecture-canon.md - the architecture canon: how to write and edit the architecture
   security-template.md, security-example.md - a template and a PHP example for the project's SECURITY.md
   roles/
     <role>.md      - a role instruction (one role = one file)

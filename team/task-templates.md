@@ -11,7 +11,7 @@ The Tech Lead reads this file before delegating. Two templates: the task for an 
 [One sentence: what to implement/check/refactor]
 
 ## Context
-Read: [paths to documentation, architecture, code]
+Read: `team/architecture-canon.md` (the architecture canon - if the task writes, edits or checks the architecture), [paths to documentation, architecture, code]
 
 Brief description:
 - [What this block should do / what to check]
