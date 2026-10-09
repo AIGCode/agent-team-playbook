@@ -2,11 +2,15 @@
 
 # team-playbook - how to use
 
-> Everything a chat has worked out stays in its session: close the chat and the data is lost.
->
-> The bigger the project, the faster it falls apart: context gets lost, decisions drift, material scatters across chats. The framework holds the project together: all the context lives in the project's files, and the work grows with it - from a single chat to a team of roles.
+I have been working with artificial intelligence since it first appeared, and all along I have been trying to build it into my work so that there is less work or so that I get more done. There is no less work yet, but productivity has grown many times over.
 
-This is what team-playbook is for. It grew out of my own practice of working with AI on many applications. Install it and start your first project - everything is below, step by step.
+The main problem I was fighting: chats do not pass information to each other. All those modes that compress the conversation when moving to a new session work poorly - something always gets lost. So I started working in projects: all decisions and agreements are stored in the project's files, not in the chat's memory. Close the chat - nothing is lost, a new chat continues from the same place.
+
+Then I hit the next limit: one chat cannot carry a large project as a whole. I had to hand the work out to agents - each with its own role (developer, checker and so on) - and work out how they pass data to each other. That is how team-playbook came about. Everything is tested on a regular Claude Max 5x subscription (107 euros a month), and always on the latest models: I started with GPT and Claude, now I work in Claude Code with Opus 5.5 in Visual Studio Code. For those who work in Cursor, there is a separate file `team/RUN_CURSOR.md`: it is an instruction for the AI - following it, the AI launches the team's agents with Cursor's own tools, and the work itself goes the same way.
+
+What tasks do I solve this way? From simple chains of letters on one topic to complex applications. For example, right now I am writing a connector between Zoho CRM, Shopify and Reverb (the top marketplace for reselling guitars, something like eBay).
+
+Install it and start your first project - everything is below, step by step.
 
 ## Installation
 

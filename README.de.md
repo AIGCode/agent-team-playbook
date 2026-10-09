@@ -2,11 +2,15 @@
 
 # team-playbook - Anleitung
 
-> Alles, was ein Chat erarbeitet hat, bleibt in seiner Session: Schließen Sie den Chat, sind die Daten verloren.
->
-> Je größer das Projekt, desto schneller zerfällt es: Kontext geht verloren, Entscheidungen verschwimmen, Material verstreut sich über Chats. Das Framework hält das Projekt zusammen: Der gesamte Kontext lebt in den Dateien des Projekts, und die Arbeit wächst mit ihm - von einem einzelnen Chat bis zu einem Team aus Rollen.
+Ich arbeite mit künstlicher Intelligenz, seit es sie gibt, und versuche die ganze Zeit, sie so einzubauen, dass es weniger Arbeit wird oder dass ich mehr schaffe. Weniger Arbeit ist es bisher nicht geworden, aber die Produktivität ist um ein Vielfaches gestiegen.
 
-Genau dafür gibt es team-playbook. Es ist aus meiner eigenen Praxis entstanden, mit AI an vielen Anwendungen zu arbeiten. Installieren Sie es und starten Sie Ihr erstes Projekt - unten steht alles Schritt für Schritt.
+Das Hauptproblem, mit dem ich gekämpft habe: Chats geben Informationen nicht aneinander weiter. All diese Modi, die den Verlauf beim Wechsel in eine neue Session komprimieren, funktionieren schlecht - irgendetwas geht immer verloren. Deshalb habe ich angefangen, in Projekten zu arbeiten: Alle getroffenen Entscheidungen und Absprachen liegen in den Dateien des Projekts, nicht im Gedächtnis des Chats. Chat geschlossen - nichts ist verloren, ein neuer Chat macht an derselben Stelle weiter.
+
+Dann stieß ich auf das Nächste: Ein Chat stemmt kein großes Projekt als Ganzes. Ich musste die Arbeit an Agenten verteilen - jeder mit seiner eigenen Rolle (Entwickler, Prüfer usw.) - und durchdenken, wie sie einander Daten übergeben. So ist team-playbook entstanden. Alles ist mit einem normalen Claude-Max-5x-Abo (107 Euro im Monat) getestet, und immer mit den neuesten Modellen: Angefangen habe ich mit GPT und Claude, jetzt arbeite ich mit Claude Code und Opus 5.5 in Visual Studio Code. Für alle, die in Cursor arbeiten, gibt es eine eigene Datei `team/RUN_CURSOR.md`: Sie ist eine Anleitung für die KI - danach startet sie die Agenten des Teams mit den Mitteln von Cursor, und die Arbeit selbst läuft genauso.
+
+Welche Aufgaben löse ich so? Von einfachen E-Mail-Verläufen zu einem Thema bis zu komplexen Anwendungen. Zum Beispiel schreibe ich gerade einen Connector zwischen Zoho CRM, Shopify und Reverb (dem führenden Marktplatz für den Wiederverkauf von Gitarren, so etwas wie eBay).
+
+Installieren Sie es und starten Sie Ihr erstes Projekt - unten steht alles Schritt für Schritt.
 
 ## Installation
 
