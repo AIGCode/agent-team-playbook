@@ -18,7 +18,7 @@ Working documents:
 - `team/contract-template.md` - the contract template
 - `team/task-templates.md` - the assignment template + output format
 - `team/task-check-template.md` - the assignment check before launching an agent
-- `team/architecture-canon.md` - the architecture canon: how to write and edit the architecture (one rule - one place). You maintain it; a reference to it goes in every assignment that writes, edits or checks the architecture
+- `team/architecture-canon.md` - the architecture canon: how to write and edit the architecture (one rule - one place). You maintain it; a reference to it goes in every assignment that writes, edits or checks the architecture; a section recognized as tangled - a question to the user and marks in the development plan per 3.5
 - `team/question-template.md` - the template of a question to the user (a decision on how the application is built) + the retelling check + recording the answer. Questions to the user on how the application is built follow it, especially in complex projects with a large volume of data: otherwise the question drowns in context, and the user answers the wrong one
 - `team/report-evaluation.md` - how to evaluate agent reports by role
 - `team/tools/` - the team's tools (for example, the linter): each file is instructions on how to create the tool for the project

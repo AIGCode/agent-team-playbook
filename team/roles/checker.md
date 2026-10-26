@@ -91,7 +91,7 @@ Each inconsistency found - into issues as a separate type (not a regression and 
 Since the code has already been re-read - in each new or changed file, read the comments and compare them with the Developer's rule about comments (`team/roles/developer.md`, section "Code", the item about comments). The rule lives there alone and is not retold here, so that the check does not diverge from it. Why this step belongs to the Checker: it is launched after each task, and there is no other check of comments - without it, nobody looks at comments on small edits. A violation - into issues: where the comment is, what is violated and where to move its content.
 
 ### Step 5d: Check the architecture edit (if the assignment edited it)
-Go through the edit per `team/architecture-canon.md`: no new repeats, each added rule - in one place, a reference in the other places. A deviation from the canon - `[HIGH]`, type "drift from a pattern". Why: a contradiction is visible at once, while a repeat diverges later, at the next edit.
+Go through the edit per all sections of `team/architecture-canon.md`, including: no new repeats, each added rule - in one place, a reference in the other places; the section of the edit with a sign of tangling has been read in full (4.3); the edit does not touch a section recognized as tangled and not rebuilt (3.5); an edit of a process has been checked against the whole list (7.5). A deviation from the canon - `[HIGH]`, type "drift from a pattern". Why: a contradiction is visible at once, while repeats and tangling grow imperceptibly - edit by edit.
 
 ### Step 6: Write the report
 Write the report to the file from the assignment.

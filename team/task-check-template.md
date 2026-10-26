@@ -49,7 +49,8 @@ Checked against:
 Found: 
 Fixed: 
 
-## 5. Are there contradictions with the contract, the agent's role, the architecture, itself?
+## 5. Are there contradictions with the contract, the agent's role, the architecture, the architecture canon, itself?
+The task's plan item and the places the edit goes to are checked against the marks about tangled places in the development plan (`team/architecture-canon.md`, 3.5): no work goes past a mark. If the task writes or edits the architecture - it does not order writing in a form that the canon prohibits.
 Checked against: 
 Found: 
 Fixed: 

@@ -167,6 +167,7 @@ Contains:
 - Current status (what is done, what is next)
 - Deadline estimates (if any)
 - Blockers and dependencies
+- Marks before the items that touch a section of the architecture recognized as tangled (if the project has an architecture: `team/architecture-canon.md`, 3.5)
 
 `PLAN.md` - the stages and status of the whole project. In a project with a team, work on the plan goes in missions: a large plan item - several missions, a small one - one; each mission has its own contract, and `PLAN.md` is updated when it is closed.
 
@@ -261,7 +262,7 @@ Application code: each application is in its own folder `<project>/dev/<app>/` (
 Create: with the first application.
 
 #### docs/
-Detailed documentation on applications: `docs/<app>/ARCHITECTURE.md` (the application architecture - the mission's source of truth), plus API descriptions, data flows, guides, procedures and, if needed, `docs/<app>/DECISIONS.md` - the decisions of one application (see `DECISIONS.md`).
+Detailed documentation on applications: `docs/<app>/ARCHITECTURE.md` (the application architecture - the mission's source of truth), plus API descriptions, data flows, guides, procedures, the application's setup document - the installation values (`team/architecture-canon.md`, 5.1) and, if needed, `docs/<app>/DECISIONS.md` - the decisions of one application (see `DECISIONS.md`).
 
 The difference from `research/`: here - what describes the application and is needed while it lives; in `research/` - research (question, method, conclusions).
 

@@ -28,7 +28,7 @@ The assignment contains:
 - A comment is written only if without it the next reader would break the code: a comment is read by the next developer of the code, not by the next agent of the mission, and everything else goes stale and bloats the code. Allowed: a short file header (purpose and usage, for a CLI - `Usage` and modes); one line above a function (what it returns or when it stops); an explanation of why the code is written this way if without it the code would be broken (for example, "keep 'token' so older scripts do not break"); service markers of the code state (`// stub: ...`, `// step 4: ...`). Not in a comment: the change history, mission and item numbers, the history of choosing solutions (what was considered, which mission decided), descriptions of other files, instructions to a human, agent correspondence - these go into the report, the contract, the README or the session log; how a tool works - into the README. Paths and the server layout - only in the deploy instructions, not in the code and not in its comments
 - Communication and report: <language>
 - Functions: up to 50 lines, preferably 20-30
-- Files: up to 300 lines
+- Files: the norm is up to 200 lines - a file like that the AI reads and holds in context in full. More than 200 - no longer the norm: allowed only if part cannot be moved to the next file; the reason - in the report, the Tech Lead decides. Shortening lines for the sake of the norm is not allowed
 
 ### Data, errors, secrets
 The concrete methods for the project's stack - in `<project_rules>` under the same number.
