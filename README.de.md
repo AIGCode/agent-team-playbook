@@ -14,9 +14,11 @@ Installieren Sie es und starten Sie Ihr erstes Projekt - unten steht alles Schri
 
 ## Installation
 
-Legen Sie den Ordner `team-playbook/` unter `~/.claude/team-playbook/` ab. Das ist das Framework - ein Quellordner, kein Projekt: Aus ihm nehmen die Skills bei jedem neuen Projekt das Team und die Vorlagen. Sie können ihn auch woanders ablegen - dann fragt `team-init` (es nimmt das Team und die Vorlagen aus dem Framework) nach dem Pfad dorthin. Kopieren Sie die Skills aus `skills/` nach `~/.claude/skills/`, einen Ordner pro Skill.
+Legen Sie den Ordner `team-playbook/` gemäß `team/SETTINGS_CLAUDE_CODE.md`, „Installing the framework and skills“, ab. Das ist das Framework - ein Quellordner, kein Projekt: Aus ihm nehmen die Skills bei jedem neuen Projekt das Team und die Vorlagen. Sie können ihn auch woanders ablegen - dann fragt `team-init` (es nimmt das Team und die Vorlagen aus dem Framework) nach dem Pfad dorthin. Die Skills aus `skills/` - gemäß demselben Abschnitt.
 
 > Die Rollen-Prompts und die Komplexität der Aufgaben sind auf Modelle der Klasse Opus 4.8 und höher ausgelegt. Bei schwächeren Modellen ist die Qualität nicht garantiert. Das Framework ist für Claude Code geschrieben. Wenn Sie mit einem anderen Tool oder Modell arbeiten, bitten Sie es, im Framework die Abhängigkeiten von Claude Code zu finden und sie an sich selbst anzupassen.
+
+> Die Markierung `[Claude Code]` in den Dokumenten des Frameworks - Mechanik von Claude Code; sie bezieht sich auf die Zeile oder den Satzteil, vor dem sie steht. Finden Sie in einem anderen System eine Entsprechung oder einen Ersatz, der Sinn der Regel ändert sich nicht.
 
 ## Erste Schritte
 
@@ -30,6 +32,8 @@ Legen Sie den Ordner `team-playbook/` unter `~/.claude/team-playbook/` ab. Das i
 1. Öffnen Sie einen neuen Chat und geben Sie ihm die `AGENTS.md` des Projekts: „Wir arbeiten in diesem Projekt“.
 2. Geben Sie ihm die Rollendatei: „Das ist deine Rolle, sag mir, wie du sie verstanden hast“.
 3. Ist es die Rolle des Tech Lead (`team/roles/techlead.md`), berichtet er, wie er die Rolle verstanden hat, und führt die Arbeit gemäß dem Workflow. Ist es eine andere Rolle, ist das eine kurze Arbeit innerhalb des Projekts ohne Tech Lead.
+
+Ist im Projekt ein Onboarding angelegt (`ONBOARDING.md`), geben Sie es statt der Schritte 1-2 dem Chat des Tech Lead: „Onboarding in Etappen“. Der Tech Lead steigt in Etappen in das Projekt ein und wartet nach jeder auf Sie. Ein Chat mit einer anderen Rolle startet wie gewohnt mit den Schritten 1-2: Das Onboarding ist nur für den Tech Lead.
 
 ## Lebenszyklus
 
@@ -49,7 +53,7 @@ Wurde das Team zurückgestellt - setzen Sie es später mit dem Skill `team-init`
 
 ## Was drin ist
 
-- `team/` - das Team-Framework: Rollen (`roles/`), die Missionskette (`workflow.md`), das Starten von Agenten (`RUN.md`), Vorlagen (Vertrag, Aufgabe, Frage an den Nutzer, Deploy, Architektur-Kanon, Sicherheit - `security-template.md` und das PHP-Beispiel `security-example.md`), Bewertung von Berichten. Die Platzhalter (`<project>`, `<app>`, `<SERVER_ROOT>`, `[brief project description]`, „Local environment“ beim Developer und beim Tester) werden für das konkrete Projekt ausgefüllt; ist der Stack des Projekts nicht PHP, reicht das Ausfüllen nicht - die Rollen werden zusätzlich für den Stack umgeschrieben (siehe `TEAM.md`, „Rollen“).
+- `team/` - das Team-Framework: Rollen (`roles/`), die Missionskette (`workflow.md`), das Starten von Agenten (`RUN.md`), Einstellungen von Claude Code (`SETTINGS_CLAUDE_CODE.md`), Vorlagen (Vertrag, Aufgabe, Prüfung der Aufgabe vor dem Start eines Agenten, Frage an den Nutzer, Deploy, Architektur-Kanon, Sicherheit - `security-template.md` und das PHP-Beispiel `security-example.md`, Onboarding eines neuen Chats in Etappen statt compact - `onboarding-template.md`), Bewertung von Berichten, Werkzeuge (`tools/`) und Hooks von Claude Code (`hooks/`) - Anleitungen, wie man sie erstellt oder im Projekt installiert, wenn der Nutzer zustimmt. Die Platzhalter (`<project>`, `<app>`, `<SERVER_ROOT>`, `[brief project description]`, „Local environment“ beim Developer und beim Tester) werden für das konkrete Projekt ausgefüllt; ist der Stack des Projekts nicht PHP, reicht das Ausfüllen nicht - die Rollen werden zusätzlich für den Stack umgeschrieben (siehe `TEAM.md`, „Rollen“).
 - `skills/` - drei Skills:
   - `project-init` - ein neues Projekt anlegen und organisieren (Dateistruktur).
   - `team-init` - das Team aus dem Framework in einem Projekt aufsetzen.

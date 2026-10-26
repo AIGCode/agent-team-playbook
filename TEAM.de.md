@@ -52,6 +52,7 @@ Tragende Elemente sind das, was das Projekt vor dem Zerfall bewahrt. Je größer
 Ein Gate ist ein Punkt, über den die Arbeit nicht hinausgeht, bis sie geprüft wurde. So wandert ein Fehler nicht weiter die Kette entlang.
 
 - **Vertrag** - die Arbeit beginnt nicht, bis Sie freigegeben haben, was Sie bekommen und wie es geprüft wird.
+- **Prüfung der Aufgabe** - ein Agent wird nicht gestartet, bis der Tech Lead seine Aufgabe erneut gelesen und die Prüfung aufgeschrieben hat (`team/task-check-template.md`): Einen Fehler in der Aufgabe sieht weiter unten in der Kette niemand.
 - **Checker** - Code geht nicht weiter, bis er auf Fehler, Unstimmigkeiten und Konsistenz geprüft wurde.
 - **Reviewer** - eine große Änderung wird nicht ohne Sicherheits-Review abgeschlossen.
 - **Tester** - das Ergebnis wird nicht ohne Tests abgenommen.
@@ -62,10 +63,12 @@ Wann ein Gate übersprungen werden kann, entscheidet der Tech Lead anhand der Be
 ## Grundregeln
 
 - **Einer ändert, viele prüfen.** Dateien bearbeitet immer nur eine Rolle zur gleichen Zeit, die prüfenden Rollen arbeiten parallel: Zwei bearbeitende Rollen würden gegenseitig ihre Arbeit überschreiben.
-- **Sie sprechen mit dem Tech Lead.** Er kommt nur mit einem Blocker, einem Schritt außerhalb des Vertrags oder einer Entscheidung, die bei Ihnen liegt, zu Ihnen.
+- **Sie sprechen mit dem Tech Lead.** Er kommt nur mit einem Blocker, einem Schritt außerhalb des Vertrags oder einer Entscheidung, die bei Ihnen liegt, zu Ihnen. Was er selbst entschieden hat, sehen Sie im Block „Meine Initiative“ am Ende seiner Antwort: was, warum und wie man es zurücknimmt; Entscheidungen, die die Bedingungen des Vertrags ändern, sind mit **Vertrag:** markiert.
 - **Das Team ändert seine eigenen Anweisungen** (`team/`) nicht ohne Ihre Zustimmung.
 - **Eine Mission ist abgeschlossen, wenn der Vertrag abgeschlossen und der Plan aktualisiert ist.** Sonst weiß der nächste Chat nicht, dass die Arbeit bereits erledigt ist.
 
 ## Kontext des Tech Lead
 
 Die Regeln werden zu Beginn der Session in den Tech Lead geladen, und bis zur Mitte des Kontexts vergisst er sie. Wenn Sie sehen, dass er sie vergisst - lassen Sie ihn seine Rolle erneut lesen (`team/roles/techlead.md`) und bitten Sie ihn zu sagen, was er gerade tut und wo er einen Fehler gemacht hat. Er muss seine Fehler selbst aufarbeiten.
+
+In einem komplexen Projekt (ein großer Vertrag, Missionen über mehrere Chats, nach compact startet der Chat instabil) schlägt der Tech Lead ein Onboarding vor (`team/onboarding-template.md`): statt compact - ein frischer Chat, der in Etappen in das Projekt einsteigt und nach jeder auf Sie wartet. Der Start kostet mehr, dafür beginnt jeder Chat gleich. Die Punkte des Onboardings ändern Sie, „Where we are now“ und die Übergabe im Session-Log führt der Tech Lead.

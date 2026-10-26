@@ -28,12 +28,12 @@ Understand exactly what is needed and why.
 
 ### Step 3: Research
 The strategy depends on the task:
-- **Documentation:** WebSearch on the specified domains -> extract the content -> store
+- **Documentation:** [Claude Code] WebSearch on the specified domains -> extract the content -> store
 - **Fact-checking:** find primary sources -> compare with the claim -> verdict
 - **Overview:** broad search -> filtering -> structuring
 - **Technical question:** documentation + forums + examples -> an answer with sources
 
-Tools:
+[Claude Code] Tools:
 - WebSearch - the main search tool
 - WebFetch - loading full pages (if not blocked)
 - Read - reading local project files

@@ -14,9 +14,11 @@ Install it and start your first project - everything is below, step by step.
 
 ## Installation
 
-Put the `team-playbook/` folder in `~/.claude/team-playbook/`. This is the framework - a source folder, not a project: the skills take the team and the templates from it for every new project. You can also put it elsewhere - then `team-init` (it takes the team and the templates from the framework) will ask for the path to it. Copy the skills from `skills/` into `~/.claude/skills/`, one folder per skill.
+Put the `team-playbook/` folder in place per `team/SETTINGS_CLAUDE_CODE.md`, "Installing the framework and skills". This is the framework - a source folder, not a project: the skills take the team and the templates from it for every new project. You can also put it elsewhere - then `team-init` (it takes the team and the templates from the framework) will ask for the path to it. The skills from `skills/` - per the same section.
 
 > The role prompts and task complexity are designed for models in the Opus 4.8 class and above. On weaker models quality is not guaranteed. The framework is written for Claude Code. If you work with another tool or model, ask it to find the Claude Code dependencies in the framework and adapt them to itself.
+
+> The `[Claude Code]` marker in the framework's documents - Claude Code mechanics; it applies to the line or phrase it stands before. In another system, find an equivalent or a replacement; the meaning of the rule does not change.
 
 ## Getting started
 
@@ -30,6 +32,8 @@ Put the `team-playbook/` folder in `~/.claude/team-playbook/`. This is the frame
 1. Open a new chat, hand it the project's `AGENTS.md`: "We are working in this project".
 2. Hand it the role file: "This is your role, tell me how you understood it".
 3. If this is the Tech Lead role (`team/roles/techlead.md`), they report how they understood the role and run the work per the workflow. If it is another role, this is short work within the project without a Tech Lead.
+
+If the project has an onboarding (`ONBOARDING.md`), hand it to the Tech Lead's chat instead of steps 1-2: "Onboarding in stages". The Tech Lead enters the project in stages and waits for you after each one. A chat with another role starts with steps 1-2, as usual: the onboarding is only for the Tech Lead.
 
 ## Lifecycle
 
@@ -49,7 +53,7 @@ If the team was deferred - deploy it later with the `team-init` skill.
 
 ## What's inside
 
-- `team/` - the team framework: roles (`roles/`), the mission chain (`workflow.md`), launching agents (`RUN.md`), templates (contract, task, question to the user, deploy, architecture canon, security - `security-template.md` and the PHP example `security-example.md`), report evaluation. The placeholders (`<project>`, `<app>`, `<SERVER_ROOT>`, `[brief project description]`, "Local environment" for the Developer and the Tester) are filled in for the specific project; if the project's stack is not PHP, filling them in is not enough - the roles are also rewritten for the stack (see `TEAM.md`, "Roles").
+- `team/` - the team framework: roles (`roles/`), the mission chain (`workflow.md`), launching agents (`RUN.md`), Claude Code settings (`SETTINGS_CLAUDE_CODE.md`), templates (contract, task, task check before launching an agent, question to the user, deploy, architecture canon, security - `security-template.md` and the PHP example `security-example.md`, onboarding a new chat in stages instead of compact - `onboarding-template.md`), report evaluation, tools (`tools/`) and Claude Code hooks (`hooks/`) - instructions on how to create them or install them in the project if the user agrees. The placeholders (`<project>`, `<app>`, `<SERVER_ROOT>`, `[brief project description]`, "Local environment" for the Developer and the Tester) are filled in for the specific project; if the project's stack is not PHP, filling them in is not enough - the roles are also rewritten for the stack (see `TEAM.md`, "Roles").
 - `skills/` - three skills:
   - `project-init` - create and organize a new project (file structure).
   - `team-init` - deploy the team into a project from the framework.

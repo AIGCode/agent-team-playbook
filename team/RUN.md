@@ -1,18 +1,12 @@
 # Running the Agent Teams
 
+[Claude Code] The whole document is Claude Code mechanics: in another system, find an equivalent or a replacement; the meaning of the rule does not change.
+
 Operational commands for the Tech Lead. What to invoke and in what order.
 
 ## Prerequisite
 
-`~/.claude/settings.json` must contain:
-
-```json
-{
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  }
-}
-```
+The `settings.json` setup - `team/SETTINGS_CLAUDE_CODE.md`, "Agent team".
 
 ## 1. Create the team
 
@@ -20,7 +14,7 @@ No longer required. `TeamCreate` / `TeamDelete` have been removed from the syste
 
 ## 2. Launch a teammate
 
-The Tech Lead reads the role file (`team/roles/<role>.md`), formulates the task per `team/task-templates.md`, and launches the teammate:
+The Tech Lead reads the role file (`team/roles/<role>.md`), formulates the task per `team/task-templates.md`, checks it per `team/task-check-template.md`, and launches the teammate:
 
 ```
 Agent:
@@ -28,6 +22,8 @@ Agent:
   subagent_type: "general-purpose"
   prompt: [per section 5 - links to the role and the task]
 ```
+
+If the project has the task check hook installed (`team/hooks/task-review.md`), it rejects a launch without a fresh and complete check, with a list of reasons: fix them and launch again.
 
 Deprecated parameters (the system ignores them, verified 2026-07-27):
 - `team_name` - the team is implicit;
@@ -53,7 +49,7 @@ What to observe:
 - Launch a role ONCE, then only via `SendMessage`.
 - Do not reuse names. On a collision the name goes to the new agent, and the first one becomes unreachable by name - only the saved `agentId` remains.
 - Do not send `shutdown` to an agent before the mission is closed: it is irreversible, unlike idling.
-- An agent's plain text does NOT reach the Tech Lead. In each agent's task, state explicitly: report via `SendMessage` (to: "team-lead"). Without this the agent replies into the void, and the lead only sees an idle notice.
+- An agent's plain text does NOT reach the Tech Lead. In the launch prompt (section 5), state explicitly for each agent: report via `SendMessage` (to: "team-lead"). Without this the agent replies into the void, and the lead only sees an idle notice.
 
 An agent does not die after reporting; it goes idle and stays available. Its row in the agents panel is hidden after 30 seconds of idling - that is display only; a message by name brings back both the row and the agent. Keep-alive messages are not needed.
 

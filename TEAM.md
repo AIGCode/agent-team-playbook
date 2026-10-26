@@ -52,6 +52,7 @@ Load-bearing elements are what keep the project from falling apart. The larger i
 A gate is a point past which work does not go until it has been checked. This keeps an error from travelling further down the chain.
 
 - **Contract** - work does not start until you have approved what you will get and how it will be checked.
+- **Task check** - an agent is not launched until the Tech Lead has re-read its task and written down the check (`team/task-check-template.md`): nobody further down the chain sees an error in the task.
 - **Checker** - code does not go further until it has been checked for breakage, mismatches and consistency.
 - **Reviewer** - a large change is not closed without a security review.
 - **Tester** - the result is not accepted without tests.
@@ -62,10 +63,12 @@ When a gate can be skipped is decided by the Tech Lead using the conditions in `
 ## Core rules
 
 - **One changes, many check.** One role at a time edits files, the checking roles work in parallel: two editing roles would overwrite each other's work.
-- **You talk to the Tech Lead.** They come to you only with a blocker, a step outside the contract or a decision that is yours.
+- **You talk to the Tech Lead.** They come to you only with a blocker, a step outside the contract or a decision that is yours. What they decided themselves is visible in the "My initiative" block at the end of their answer: what, why and how to roll it back; decisions that change the terms of the contract are marked **Contract:**.
 - **The team does not change its own instructions** (`team/`) without your consent.
 - **A mission is closed when the contract is closed and the plan is updated.** Otherwise the next chat will not know the work is already done.
 
 ## Tech Lead's context
 
 The rules are loaded into the Tech Lead at the start of the session, and by the middle of the context they forget them. If you see them forgetting - have them re-read their role (`team/roles/techlead.md`) and ask them to say what they are doing and where they went wrong. They must work through their own mistakes.
+
+In a complex project (a large contract, missions spanning several chats, the chat starts unstably after compact) the Tech Lead will propose an onboarding (`team/onboarding-template.md`): instead of compact - a fresh chat that enters the project in stages and waits for you after each one. The start costs more, but every chat begins the same way. You change the onboarding's items; the Tech Lead maintains "Where we are now" and the handoff in the session log.

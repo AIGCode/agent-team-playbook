@@ -71,7 +71,7 @@ No file names, finding numbers, area labels or internal terms without an explana
 
 Before sending to the user, the question is retold by a fresh agent that sees only this question's section - without the architecture, the correspondence and earlier retellings.
 
-- The task for the agent - following the sample below ("Retelling task"): retell what the question is about, how the options differ, what the team proposes; name everything that can be understood in two ways. The report - via `SendMessage`.
+- The task for the agent - following the sample below ("Retelling task"): retell what the question is about, how the options differ, what the team proposes; name everything that can be understood in two ways. The report - [Claude Code] via `SendMessage`.
 - The retelling is wrong in substance → the question is rewritten and goes to a fresh agent (not the same one: it has seen the old version).
 - The retelling is correct, the remarks are wording clarifications → the Tech Lead makes them itself and sends the question to the user.
 - To the user - a link to the file and briefly: what the question is about and the options, one line each.
@@ -98,7 +98,7 @@ You read only this file. You do not open the architecture, other reports, the co
 Do not judge which option is better - only the retelling and the places where the text can be misunderstood.
 
 ## Result format
-Send the report as text via `SendMessage` (to: "team-lead") - plain text does not reach the Tech Lead. If you are allowed to write files, append the same text to `team/missions/<NNN>_<name>/reports/retell.md` as a section "Question N" (without overwriting earlier sections).
+[Claude Code] Send the report as text via `SendMessage` (to: "team-lead") - plain text does not reach the Tech Lead. If you are allowed to write files, append the same text to `team/missions/<NNN>_<name>/reports/retell.md` as a section "Question N" (without overwriting earlier sections).
 
 ```
 ## Question N - retelling

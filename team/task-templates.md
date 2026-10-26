@@ -1,6 +1,6 @@
 # Templates
 
-The Tech Lead reads this file before delegating. Two templates: the task for an agent and the output format.
+The Tech Lead reads this file before delegating. Two templates: the task for an agent and the output format. A finished task is checked per `team/task-check-template.md` before the agent is launched.
 
 ## Task for an agent
 
@@ -25,7 +25,7 @@ Brief description:
 - Do not touch: [files/modules outside the scope]
 
 ## End-to-end chain run
-[Chains from the application's list of chains that the agent runs through in full after the work - the path by addresses and the outcome "closed / break" into the report; chains outside the list it does not run, a suspected break - into the report] OR [no - the edit does not change the behavior of a flow / the application has no list of chains]. When it is needed - `team/roles/techlead.md`, "End-to-end chain run"
+[Chains from the application's list of chains that the agent runs through in full after the work - the path by addresses and the outcome "closed / break" into the report; chains outside the list it does not run, a suspected break - into the report] OR [no - the edit does not change the behavior of a flow / a simple application]. There is no list, but the edit goes through several parts - first the list. When it is needed - `team/roles/techlead.md`, "End-to-end chain run"
 
 ## Acceptance criteria
 - [ ] [Scenario works]
@@ -33,7 +33,6 @@ Brief description:
 
 ## Result format
 Report to `team/missions/<NNN>_<name>/reports/<role>.md` per the output format below.
-When done, send the Tech Lead via SendMessage (to: "team-lead") the report's outcome + Summary + the path to the report - plain text does not reach the Tech Lead.
 ```
 
 ## Output format

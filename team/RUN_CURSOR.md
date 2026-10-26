@@ -8,6 +8,8 @@ In Cursor a role agent is a subagent: the main agent (the Tech Lead) launches it
 
 - Cursor with subagent support (version 2.4 and newer; `/multitask` - from 3.2).
 - The Tech Lead is the main Agent chat. A separate flag in the settings, like `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` in Claude Code, is not needed.
+- The framework's hook scripts (`team/hooks/`) are written for Claude Code; Cursor has its own hooks in a different format. The rules these hooks hold are followed by hand in Cursor: the task check per the template (section 2), the "My initiative" block at the end of the Tech Lead's answer (`team/roles/techlead.md`).
+- The new-chat onboarding (`team/onboarding-template.md`) is a document and works in Cursor as is too. Turning off auto-compact in it is a Claude Code setting; Cursor has its own context compression, and the Tech Lead holds the rule "entered the reserve - handoff to the log and a new chat per the onboarding" on their own.
 - Cursor picks up `AGENTS.md` in the project root on its own. Cursor also loads skills from `~/.claude/skills/` (compatibility), there is no need to move them.
 
 ## 1. Create the team
@@ -38,7 +40,7 @@ Do not create wrappers for roles the project does not have. The Tech Lead does n
 
 ## 2. Launch a subagent
 
-The Tech Lead formulates the task per `team/task-templates.md`, puts it in `team/missions/<NNN>_<name>/tasks/<role>.md` and launches the subagent with the Task tool.
+The Tech Lead formulates the task per `team/task-templates.md`, puts it in `team/missions/<NNN>_<name>/tasks/<role>.md`, checks it per `team/task-check-template.md` (by hand, see "Prerequisite") and launches the subagent with the Task tool.
 
 **Attempt 1 - the role by name.** Only if the role name is among the allowed `subagent_type` values in this session's Task schema:
 

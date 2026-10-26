@@ -44,7 +44,7 @@ Size: up to 200 lines. If it exceeds this - move the information of a bloated se
 
 The entry point is `AGENTS.md` only. There is no need to split it into several files within this procedure: if that becomes necessary, the Tech Lead decides it together with the user.
 
-Create: always, from day one. CLAUDE.md is not needed - everything is in AGENTS.md.
+Create: always, from day one. [Claude Code] CLAUDE.md is not needed - everything is in AGENTS.md.
 
 ---
 
@@ -216,12 +216,16 @@ Next steps, priorities.
 Unresolved questions, awaited answers.
 ```
 
+In a project with an onboarding (`team/onboarding-template.md`), each part of the log has two more sections - "Tech Lead's mistakes and lessons" and "Handoff to the next Tech Lead": the onboarding tells a new chat how to enter, the handoff - where to continue from. The format - in the onboarding template.
+
 **Procedure for starting a new session (insert into each project's AGENTS.md).** This is the start of any session in the project. If the chat is assigned a role (for example, Tech Lead), after this procedure it goes through its role's startup procedure:
 1. Read AGENTS.md - the project's rules and context
 2. Read the latest session log (the file with the most recent date). If the context is incomplete - read the previous log too.
 3. Read the project context (CONTEXT.md, PLAN.md) if the log says so
 4. Report briefly: "Read. Last session: [date]. We stopped at: [what]."
 5. Ask: "Do we continue from here or is there another task?"
+
+If the project has an onboarding (`ONBOARDING.md`, template `team/onboarding-template.md`), the procedure above stays in AGENTS.md: chats without a role and with another role start by it. Under it - one line for the Tech Lead; its text and why a line rather than a replacement - in the onboarding template ("How to set it up", step 2).
 
 **The log's goal:** a new session, after a context reset, should restore the full picture and continue the work in 1-2 minutes. If, after reading the log, the agent asks questions that have already been resolved - the log is written poorly.
 
@@ -251,6 +255,11 @@ This is for research not tied to a mission: before the project, before the team,
 
 Create: at the first research outside a mission.
 
+#### dev/
+Application code: each application is in its own folder `<project>/dev/<app>/` (sources, configs, tests), its documentation - in `docs/<app>/`. The team's roles and mission tasks rely on this path.
+
+Create: with the first application.
+
 #### docs/
 Detailed documentation on applications: `docs/<app>/ARCHITECTURE.md` (the application architecture - the mission's source of truth), plus API descriptions, data flows, guides, procedures and, if needed, `docs/<app>/DECISIONS.md` - the decisions of one application (see `DECISIONS.md`).
 
@@ -276,9 +285,13 @@ team/
   ROLES.md         - a description of all roles (who to launch and when)
   workflow.md      - the mission chain, artifacts
   RUN.md           - how to launch agents (commands, parameters, models)
+  SETTINGS_CLAUDE_CODE.md - Claude Code settings: settings.json, installing hooks, the ~/.claude paths
   contract-template.md, task-templates.md, question-template.md, deploy-template.md, report-evaluation.md
   architecture-canon.md - the architecture canon: how to write and edit the architecture
   security-template.md, security-example.md - a template and a PHP example for the project's SECURITY.md
+  task-check-template.md - the task check before launching an agent
+  onboarding-template.md - onboarding a new chat in stages instead of compact
+  hooks/           - Claude Code hooks: instructions and scripts (scripts/); installed in the project with the user's consent
   roles/
     <role>.md      - a role instruction (one role = one file)
   missions/
@@ -326,6 +339,7 @@ TEST_PLAN.md                (if testing is voluminous)
 session-logs/
 CORRESPONDENCE.md
 research/
+dev/                        (application code: dev/<app>/ - one folder per application)
 docs/                       (docs/<app>/ARCHITECTURE.md - the application architecture; with a team - from the Architect)
 archive/
 team/                       (if production code - ask; deployed by team-init)

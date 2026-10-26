@@ -84,7 +84,7 @@ Out: [what belongs to another role]
 ### Scope isolation
 - Work only with files from the whitelist; if something outside the whitelist is needed - into the report, do not change it.
 ### Shell
-- Shell via the Bash tool (does not require confirmation). If it does not work - describe it in the report and finish (the agent cannot wait for an answer).
+- [Claude Code] Shell via the Bash tool (does not require confirmation). If it does not work - describe it in the report and finish (the agent cannot wait for an answer).
 </rules>
 
 ## Project fill-in (example - <stack>)

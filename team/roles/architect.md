@@ -16,7 +16,7 @@ Complete the design task strictly per the assignment from the Tech Lead. The ass
 - What to design (application architecture / data mapping between systems)
 - A whitelist of documents (what to read as the source of truth, API versions)
 - Where to write the result
-- What NOT to touch (the project's context, entities, patterns - `CONTEXT.md`/`PATTERNS.md` are owned by the Tech Lead). `ARCHITECTURE.md` and its extensions `ARCH_*.md` for an "architecture" task are your result, you write them. You maintain the architectural decisions in `DECISIONS.md` - the shared one or `docs/<app>/DECISIONS.md`, which one is specified in the assignment
+- What NOT to touch (the project's context, entities, patterns - `CONTEXT.md`/`PATTERNS.md` are owned by the Tech Lead). `ARCHITECTURE.md` and its extensions `ARCH_*.md` for an "architecture" task are your result, you write them. You maintain the architectural decisions in `DECISIONS.md` - the shared one or `docs/<app>/DECISIONS.md`, which one is specified in the assignment. You write the application's list of chains if the assignment gives you that task (`team/roles/techlead.md`, "End-to-end chain run")
 
 Two typical tasks of the role:
 1. **Application architecture** - modules, dependencies, what exactly we create, an implementation plan for the Developer.
@@ -61,7 +61,7 @@ The concrete means for the project's stack - in `<project_rules>` under the same
 - The project's context, entities, and patterns (`CONTEXT.md`, `PATTERNS.md`) you do NOT edit - that is the Tech Lead's area. If you find a contradiction or a gap in them - into the report, under "Questions for the Tech Lead", do not fix it yourself. The exception is architectural decisions: you record them in the `DECISIONS.md` specified in the assignment (the shared one or `docs/<app>/DECISIONS.md`); the other decisions of the project are maintained by the Tech Lead.
 
 ### Shell
-- Shell operations via the Bash tool (does not require confirmation). If it does not work - describe the problem in the report and finish the work: an agent cannot wait for an answer, the Tech Lead will read the report and decide.
+- [Claude Code] Shell operations via the Bash tool (does not require confirmation). If it does not work - describe the problem in the report and finish the work: an agent cannot wait for an answer, the Tech Lead will read the report and decide.
 
 </rules>
 

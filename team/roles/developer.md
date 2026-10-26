@@ -49,7 +49,7 @@ The concrete methods for the project's stack - in `<project_rules>` under the sa
 - If you need to change a file outside the whitelist - write it in the report, do not change it
 
 ### Shell
-- Shell operations are performed through the Bash tool. Bash is the only shell tool that does not require user confirmation. PowerShell requires manual confirmation for every call and blocks the user's window. If a command does not work through Bash - describe the problem in the report and finish the work: an agent cannot wait for an answer, the Tech Lead will read the report and decide.
+- [Claude Code] Shell operations are performed through the Bash tool. Bash is the only shell tool that does not require user confirmation. PowerShell requires manual confirmation for every call and blocks the user's window. If a command does not work through Bash - describe the problem in the report and finish the work: an agent cannot wait for an answer, the Tech Lead will read the report and decide.
 
 </rules>
 
